@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dari Masalah Jadi Produk</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#1a1a18;
+  --ink2:#4a4a46;
+  --ink3:#8a8a84;
+  --paper:#faf8f4;
+  --paper2:#f2efe8;
+  --paper3:#e8e4d8;
+  --accent:#c17f3a;
+  --accent2:#8b4513;
+  --green:#2d6a4f;
+  --red:#8b1a1a;
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.7;font-size:16px}
+.page{max-width:720px;margin:0 auto;padding:0}
+.cover{background:var(--ink);color:var(--paper);padding:80px 48px 64px;position:relative;overflow:hidden}
+.cover::before{content:'';position:absolute;top:-60px;right:-60px;width:240px;height:240px;border:1px solid rgba(255,255,255,0.08);border-radius:50%}
+.cover::after{content:'';position:absolute;bottom:-40px;left:-40px;width:160px;height:160px;border:1px solid rgba(255,255,255,0.06);border-radius:50%}
+.cover-tag{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:24px;font-weight:500}
+.cover-title{font-family:var(--serif);font-size:42px;line-height:1.15;margin-bottom:16px;font-weight:600}
+.cover-title em{font-style:italic;color:rgba(255,255,255,0.6)}
+.cover-sub{font-size:15px;color:rgba(255,255,255,0.55);margin-bottom:48px;font-weight:300;line-height:1.6}
+.cover-author{display:flex;align-items:center;gap:12px}
+.cover-author-dot{width:32px;height:1px;background:var(--accent)}
+.cover-author-name{font-size:13px;color:rgba(255,255,255,0.4);letter-spacing:1px;text-transform:uppercase}
+.toc{background:var(--paper2);border-bottom:1px solid var(--paper3);padding:0 48px}
+.toc-inner{display:flex;gap:0;overflow-x:auto;scrollbar-width:none}
+.toc-inner::-webkit-scrollbar{display:none}
+.toc-btn{flex-shrink:0;padding:14px 16px;font-size:12px;font-family:var(--sans);background:none;border:none;border-bottom:2px solid transparent;color:var(--ink3);cursor:pointer;transition:all 0.2s;white-space:nowrap;font-weight:400}
+.toc-btn:hover{color:var(--ink);border-bottom-color:var(--paper3)}
+.toc-btn.active{color:var(--accent2);border-bottom-color:var(--accent);font-weight:500}
+.section{display:none;padding:48px 48px 64px;animation:fadeIn 0.3s ease}
+.section.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.chapter-num{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--ink3);margin-bottom:8px;font-weight:500}
+.chapter-title{font-family:var(--serif);font-size:30px;line-height:1.2;margin-bottom:32px;color:var(--ink);font-weight:600}
+.chapter-title em{font-style:italic;color:var(--accent2)}
+.prose p{font-size:16px;line-height:1.8;color:var(--ink2);margin-bottom:20px;font-weight:300}
+.prose p strong{color:var(--ink);font-weight:500}
+.prose blockquote{border-left:2px solid var(--accent);padding:4px 0 4px 20px;margin:24px 0;font-family:var(--serif);font-style:italic;font-size:18px;color:var(--ink);line-height:1.5}
+.prose .highlight{background:var(--paper2);border:1px solid var(--paper3);border-radius:8px;padding:20px 24px;margin:24px 0}
+.prose .highlight p{margin-bottom:8px;font-size:15px}
+.prose .highlight p:last-child{margin-bottom:0}
+.latihan{background:var(--ink);color:var(--paper);border-radius:12px;padding:28px 32px;margin-top:36px}
+.latihan-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:12px;font-weight:500}
+.latihan-title{font-family:var(--serif);font-size:20px;margin-bottom:16px;font-weight:600}
+.latihan p{font-size:14px;color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:8px;font-weight:300}
+.latihan p:last-child{margin-bottom:0}
+.form-section{margin-bottom:32px}
+.form-section-title{font-family:var(--serif);font-size:18px;margin-bottom:4px;color:var(--ink);font-weight:600}
+.form-section-sub{font-size:13px;color:var(--ink3);margin-bottom:16px;font-weight:300}
+.form-group{margin-bottom:16px}
+.form-label{display:block;font-size:13px;font-weight:500;color:var(--ink);margin-bottom:6px}
+.form-hint{font-size:12px;color:var(--ink3);margin-bottom:6px;font-style:italic}
+.form-input,.form-textarea{width:100%;padding:10px 14px;font-family:var(--sans);font-size:14px;border:1px solid var(--paper3);border-radius:8px;background:white;color:var(--ink);outline:none;transition:border-color 0.2s;font-weight:300}
+.form-input:focus,.form-textarea:focus{border-color:var(--accent)}
+.form-textarea{resize:vertical;min-height:80px;line-height:1.6}
+.form-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.chip{padding:6px 14px;border:1px solid var(--paper3);border-radius:20px;font-size:13px;cursor:pointer;transition:all 0.15s;background:white;color:var(--ink2);font-family:var(--sans);font-weight:300}
+.chip:hover{border-color:var(--accent);color:var(--accent2)}
+.chip.selected{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.prompt-output{background:var(--ink);border-radius:12px;padding:28px;margin-top:24px;display:none}
+.prompt-output.visible{display:block}
+.prompt-output-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:16px;font-weight:500}
+.prompt-text{font-size:14px;color:rgba(255,255,255,0.75);line-height:1.8;white-space:pre-wrap;font-family:var(--sans);font-weight:300}
+.copy-btn{display:inline-flex;align-items:center;gap:8px;margin-top:20px;padding:10px 20px;background:var(--accent);color:white;border:none;border-radius:8px;font-size:13px;font-family:var(--sans);cursor:pointer;font-weight:500;transition:opacity 0.2s}
+.copy-btn:hover{opacity:0.85}
+.copy-btn.copied{background:var(--green)}
+.generate-btn{width:100%;padding:14px;background:var(--ink);color:var(--paper);border:none;border-radius:8px;font-size:15px;font-family:var(--serif);font-style:italic;cursor:pointer;margin-top:8px;transition:opacity 0.2s;font-weight:400}
+.generate-btn:hover{opacity:0.85}
+.nav-footer{display:flex;justify-content:space-between;align-items:center;padding:24px 48px;border-top:1px solid var(--paper3);background:var(--paper2)}
+.nav-btn{padding:10px 20px;border:1px solid var(--paper3);background:white;border-radius:8px;font-size:13px;font-family:var(--sans);cursor:pointer;color:var(--ink2);transition:all 0.15s;font-weight:400}
+.nav-btn:hover{border-color:var(--ink);color:var(--ink)}
+.nav-btn.primary{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.nav-btn.primary:hover{opacity:0.85}
+.nav-progress{font-size:12px;color:var(--ink3)}
+.divider{height:1px;background:var(--paper3);margin:32px 0}
+@media(max-width:600px){
+  .cover{padding:48px 24px 40px}
+  .cover-title{font-size:30px}
+  .section{padding:32px 24px 48px}
+  .toc{padding:0 16px}
+  .nav-footer{padding:16px 24px}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="cover">
+  <div class="cover-tag">Panduan Praktis</div>
+  <h1 class="cover-title">Dari Masalah<br>Jadi Produk —<br><em>Dalam Satu Hari</em></h1>
+  <p class="cover-sub">Panduan build aplikasi pertamamu di Claude<br>Tanpa perlu ngerti dalamnya</p>
+  <div class="cover-author">
+    <div class="cover-author-dot"></div>
+    <span class="cover-author-name">Muh Rachdian Rachman</span>
+  </div>
+</div>
+
+<nav class="toc">
+  <div class="toc-inner">
+    <button class="toc-btn active" onclick="goTo(0)">Intro</button>
+    <button class="toc-btn" onclick="goTo(1)">1 · Mulai dari orang</button>
+    <button class="toc-btn" onclick="goTo(2)">2 · Satu masalah</button>
+    <button class="toc-btn" onclick="goTo(3)">3 · Validasi</button>
+    <button class="toc-btn" onclick="goTo(4)">4 · Brief</button>
+    <button class="toc-btn" onclick="goTo(5)">5 · Prompt</button>
+    <button class="toc-btn" onclick="goTo(6)">6 · Build</button>
+    <button class="toc-btn" onclick="goTo(7)">7 · Next step</button>
+  </div>
+</nav>
+
+<div class="section active" id="s0">
+  <div class="prose">
+    <p style="font-size:13px;color:var(--ink3);margin-bottom:32px;text-transform:uppercase;letter-spacing:2px;font-weight:500">Pengantar</p>
+    <p>Kamu hidup di zaman paling mudah dalam sejarah untuk bikin sesuatu.</p>
+    <p>Tools ada. AI ada. Tutorial ada di mana-mana. Semua gratis atau murah.</p>
+    <p>Tapi kamu masih belum bikin apa-apa.</p>
+    <p>Bukan karena kamu malas. Bukan karena kamu tidak mampu.</p>
+    <p>Tapi karena terlalu banyak pilihan justru bikin kamu diam di tempat. Kayak berdiri di depan restoran dengan menu 100 halaman — lapar, tapi tidak jadi pesan.</p>
+    <blockquote>Buku ini tidak kasih kamu pilihan baru. Buku ini kasih kamu satu jalan.</blockquote>
+    <p>Dari ide yang masih di kepala, sampai jadi produk yang orang lain bisa pakai. Hari ini. Tanpa modal besar. <strong>Tanpa perlu ngerti dalamnya.</strong></p>
+    <p style="font-size:14px;color:var(--ink3);padding:16px 20px;border-left:2px solid var(--paper3);font-style:italic">Buku ini untuk kamu yang pekerjaannya bersentuhan dengan data, dokumen, laporan, pelanggan, atau informasi yang perlu dikelola. Kalau kamu ngangguk baca kalimat itu — lanjut.</p>
+    <p>Satu syarat saja — kamu harus mau jujur tentang masalah yang mau kamu selesaikan. Kalau itu ada — sisanya ada di sini.</p>
+  </div>
+</div>
+
+<div class="section" id="s1">
+  <div class="chapter-num">Chapter 1</div>
+  <h2 class="chapter-title">Mulai dari <em>orang</em>,<br>bukan dari ide</h2>
+  <div class="prose">
+    <p>Saya sudah coba banyak AI. Masing-masing ada kelebihannya. Tapi setiap kali hasilnya keluar, saya harus baca berulang, edit sana-sini, dan ujungnya masih jauh dari yang saya bayangkan.</p>
+    <p>Sampai saya coba Claude. Bukan karena dia lebih canggih. Tapi karena hasilnya lebih <em>ngerti</em> — lebih dekat dengan apa yang saya maksud. Seperti ngobrol ke orang yang benar-benar dengerin, bukan cuma menunggu giliran bicara.</p>
+    <p>Tapi ada satu hal yang saya pelajari setelah semua percobaan itu —</p>
+    <blockquote>AI secanggih apapun, kalau instruksinya berantakan, hasilnya ikut berantakan.</blockquote>
+    <p>Kayak kamu minta tolong teman cariin barang di kamarmu — tapi kamu sendiri tidak tahu barangnya ada di mana. Dia mau bantu, tapi mau mulai dari mana?</p>
+    <div class="divider"></div>
+    <p>Kesalahan pertama yang hampir semua orang lakukan — termasuk saya dulu — adalah langsung loncat ke <em>"mau bikin apa"</em> tanpa tahu <em>"untuk siapa dan kenapa."</em></p>
+    <p>Hasilnya? Berantakan. Susunannya tidak jelas. Minta revisi, masih tidak pas. Minta lagi, makin pusing. Bukan salah AI-nya. Salah cara mulainya.</p>
+    <p>Suatu hari saya perlu ringkasan laporan keuangan dari file PDF puluhan halaman. Saya ceritakan dulu <em>siapa yang akan baca</em> dan <em>apa yang mereka perlu tahu</em>. Bukan langsung minta diringkas. Hasilnya keluar dalam hitungan detik. Rapi. Sesuai. Tidak perlu diedit.</p>
+  </div>
+  <div class="latihan">
+    <div class="latihan-label">Latihan</div>
+    <div class="latihan-title">Fokus ke dirimu dulu</div>
+    <p>Tulis 3 kalimat tentang dirimu sendiri:</p>
+    <p>1. Kamu sehari-hari ngapain — kerja apa atau kegiatan apa yang berhubungan dengan data atau informasi?</p>
+    <p>2. Bagian mana yang paling sering bikin kamu ulang dari awal atau buang waktu?</p>
+    <p>3. Sekarang kamu selesaikan itu pakai cara apa?</p>
+  </div>
+</div>
+
+<div class="section" id="s2">
+  <div class="chapter-num">Chapter 2</div>
+  <h2 class="chapter-title">Satu masalah,<br><em>satu produk</em></h2>
+  <div class="prose">
+    <p>Buka notes di HP kamu sekarang.</p>
+    <p>Saya tebak — ada ide yang sudah lama duduk di sana. Belum jadi apa-apa. Belum disentuh. Tapi juga belum dihapus. Karena kamu masih percaya idenya bagus.</p>
+    <p>Dan kamu benar — idenya bagus. Masalahnya bukan di ide.</p>
+    <div class="highlight">
+      <p>Waktu semangat datang, pikiran langsung lari ke mana-mana.</p>
+      <p><em>"Nanti tambahin fitur ini." "Kalau bisa ada grafik juga." "Eh sekalian bikin login-nya."</em></p>
+      <p>Satu ide simpel — dalam 10 menit sudah jadi monster. Dan monster itu yang akhirnya tidak pernah selesai.</p>
+    </div>
+    <p>Saya pernah lihat langsung. Ada yang mulai dengan tujuan sederhana — bikin aplikasi ringkasan laporan keuangan. Tidak perlu mewah. Tapi di tengah jalan idenya mulai beranak. Grafik. Export PDF. Login email. Notifikasi otomatis.</p>
+    <p>Sebulan kemudian — tidak ada yang jadi. Masalah aslinya masih ada. Dan semangat yang tadi menyala — sudah padam.</p>
+    <blockquote>Kayak mau masak mie instan, tapi tiba-tiba bikin kuah dari awal. Satu jam kemudian kamu masih di dapur, lapar, capek.</blockquote>
+    <p><strong>Produk pertama bukan tentang yang paling lengkap.</strong> Produk pertama tentang yang paling cepat menyelesaikan satu masalah nyata.</p>
+    <p>Cara paling mudah tahu apakah produkmu sudah terlalu banyak fitur — coba jelaskan dalam satu kalimat. Kalau kamu butuh lebih dari satu kalimat — potong lagi.</p>
+    <p style="font-family:var(--serif);font-style:italic;font-size:17px;color:var(--ink)">Produk yang belum selesai tidak membantu siapapun — termasuk kamu.</p>
+  </div>
+  <div class="latihan">
+    <div class="latihan-label">Latihan</div>
+    <div class="latihan-title">Satu kalimat saja</div>
+    <p>Isi kalimat ini — tidak boleh lebih dari satu:</p>
+    <p><em>"Aplikasi saya untuk _____ supaya _____."</em></p>
+    <p>Contoh: "Aplikasi saya untuk catat pengeluaran harian supaya tidak perlu hitung manual lagi."</p>
+    <p>Kalau tidak bisa dalam satu kalimat — potong dulu idenya. Baru lanjut.</p>
+  </div>
+</div>
+
+<div class="section" id="s3">
+  <div class="chapter-num">Chapter 3</div>
+  <h2 class="chapter-title"><em>Validasi</em><br>sebelum build</h2>
+  <div class="prose">
+    <p>Pernah tidak kamu habiskan waktu bikin sesuatu — dan setelah selesai, tidak pernah dipakai sama sekali?</p>
+    <p>Saya pernah. Iseng build. Selesai. Ditinggal. Tidak ada yang pakai — termasuk saya sendiri. Bukan karena hasilnya jelek. Tapi karena dari awal tidak ada alasan kuat untuk bikin.</p>
+    <blockquote>Kayak kamu rapikan meja kerja selama satu jam — mejanya bersih, tapi pekerjaan utamanya belum disentuh. Sibuk — tapi tidak maju.</blockquote>
+    <p>Setelah beberapa kali buang waktu seperti itu — saya akhirnya pakai dua pertanyaan sederhana sebelum mulai build apapun.</p>
+    <div class="highlight">
+      <p><strong>Pertanyaan 1:</strong> "Ini bikin hidup saya lebih cepat tidak?"</p>
+      <p>Kalau ya — build. Minimal kamu sendiri yang untung.</p>
+      <p style="margin-top:12px"><strong>Pertanyaan 2:</strong> "Ada orang lain yang mau bayar untuk ini?"</p>
+      <p>Kalau ya — ini bukan iseng lagi. Ini investasi waktu.</p>
+    </div>
+    <p>Kalau dua pertanyaan itu jawabannya tidak semua — skip. Lanjut ke ide berikutnya. Tidak perlu drama.</p>
+    <p>Yang susah adalah jujur menjawabnya. Karena waktu semangat lagi tinggi — semua ide terasa layak.</p>
+    <p style="font-family:var(--serif);font-style:italic;font-size:17px;color:var(--ink)">Semangat itu bahan bakar — bukan kompas.</p>
+  </div>
+  <div class="latihan">
+    <div class="latihan-label">Latihan</div>
+    <div class="latihan-title">Dua pertanyaan jujur</div>
+    <p>Ambil ide dari chapter 2. Jawab dua pertanyaan ini — tidak boleh jawab "mungkin":</p>
+    <p>1. "Ini bikin hidup saya lebih cepat tidak?" — Ya / Tidak</p>
+    <p>2. "Ada orang spesifik yang mau bayar untuk ini?" — Ya / Tidak</p>
+    <p>Minimal satu ya — lanjut ke chapter 4. Dua-duanya tidak — kembali ke chapter 1.</p>
+  </div>
+</div>
+
+<div class="section" id="s4">
+  <div class="chapter-num">Chapter 4</div>
+  <h2 class="chapter-title">Isi <em>brief</em><br>yang benar</h2>
+  <div class="prose">
+    <p>Saya tipe orang yang random. Pikiran muncul — langsung ketik. Dan itu bisa jalan — tapi mahal. Mahal waktunya.</p>
+    <blockquote>Kayak kamu mau potong rambut dan bilang "terserah" ke tukang cukur. Jangan komplain kalau hasilnya tidak sesuai. Dia tidak salah. Kamu yang tidak kasih arah.</blockquote>
+    <p>Form ini bukan untuk bikin kamu jadi orang yang detail dan terstruktur. Tapi untuk kasih kamu kerangka yang sudah jadi — tinggal isi, tidak perlu mikir urutannya. Kayak IKEA. Tinggal ikuti nomornya — jadi.</p>
+    <p>Dua bagian yang paling sering bikin orang stuck — dan paling sering bikin hasil Claude meleset — adalah <strong>fungsi</strong> dan <strong>tampilan.</strong> Bukan karena susah, tapi karena jawabannya terlalu umum.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="form-section">
+    <div class="form-section-title">Bagian 1 — Untuk siapa?</div>
+    <div class="form-section-sub">Target pengguna tools yang kamu buat</div>
+    <div class="form-group">
+      <label class="form-label">Siapa yang akan pakai aplikasi ini?</label>
+      <div class="form-hint">Contoh: ibu rumah tangga, guru SD, pemilik warung, staf HRD, freelancer</div>
+      <input class="form-input" id="f-siapa" placeholder="Tulis di sini..." />
+    </div>
+    <div class="form-group">
+      <label class="form-label">Kegiatan sehari-hari mereka yang relevan?</label>
+      <div class="form-hint">Contoh: setiap hari rekap pesanan lewat WhatsApp, tiap minggu bikin laporan ke atasan</div>
+      <textarea class="form-textarea" id="f-kegiatan" placeholder="Tulis di sini..."></textarea>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Sekarang mereka selesaikan itu pakai apa?</label>
+      <div class="form-chips">
+        <button class="chip" onclick="toggleChip(this,'f-solusi-lama')">Excel manual</button>
+        <button class="chip" onclick="toggleChip(this,'f-solusi-lama')">Tulis tangan</button>
+        <button class="chip" onclick="toggleChip(this,'f-solusi-lama')">WhatsApp / chat</button>
+        <button class="chip" onclick="toggleChip(this,'f-solusi-lama')">Dibiarkan saja</button>
+        <button class="chip" onclick="toggleChip(this,'f-solusi-lama')">Google Sheets</button>
+        <button class="chip" onclick="toggleChip(this,'f-solusi-lama')">Ingatan sendiri</button>
+      </div>
+      <input class="form-input" id="f-solusi-lama" style="margin-top:8px" placeholder="Atau tulis sendiri..." />
+    </div>
+  </div>
+
+  <div class="form-section">
+    <div class="form-section-title">Bagian 2 — Masalah spesifik</div>
+    <div class="form-section-sub">Bukan masalah umum — masalah nyata yang terjadi berulang</div>
+    <div class="form-group">
+      <label class="form-label">Masalah apa yang paling sering bikin mereka kesal atau buang waktu?</label>
+      <div class="form-hint">Makin spesifik makin baik. Contoh: "harus hitung manual tiap hari, sering salah, harus ulang dari awal"</div>
+      <textarea class="form-textarea" id="f-masalah" placeholder="Tulis di sini..."></textarea>
+    </div>
+  </div>
+
+  <div class="form-section">
+    <div class="form-section-title">Bagian 3 — Fungsi aplikasi</div>
+    <div class="form-section-sub">Bukan fitur yang kamu mau — tapi yang pengguna butuh</div>
+    <div class="form-group">
+      <label class="form-label">Kalau ada aplikasi ini, pengguna bisa ngapain yang sebelumnya tidak bisa?</label>
+      <div class="form-hint">Fokus ke perubahan untuk pengguna, bukan fitur teknis. Contoh: "lihat total pengeluaran otomatis tanpa hitung manual"</div>
+      <textarea class="form-textarea" id="f-fungsi" placeholder="Tulis 1–3 hal saja..."></textarea>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Aplikasi ini dipakai sekali atau berulang-ulang?</label>
+      <div class="form-chips">
+        <button class="chip" onclick="selectChip(this,'f-frekuensi','Dipakai berulang setiap hari')">Setiap hari</button>
+        <button class="chip" onclick="selectChip(this,'f-frekuensi','Dipakai berulang setiap minggu')">Setiap minggu</button>
+        <button class="chip" onclick="selectChip(this,'f-frekuensi','Dipakai sekali saja')">Sekali saja</button>
+        <button class="chip" onclick="selectChip(this,'f-frekuensi','Dipakai sesekali kalau dibutuhkan')">Sesekali</button>
+      </div>
+      <input type="hidden" id="f-frekuensi" />
+    </div>
+  </div>
+
+  <div class="form-section">
+    <div class="form-section-title">Bagian 4 — Tampilan & suasana</div>
+    <div class="form-section-sub">Bukan "yang bagus" — tapi yang cocok untuk penggunanya</div>
+    <div class="form-group">
+      <label class="form-label">Suasana yang cocok untuk pengguna kamu?</label>
+      <div class="form-chips">
+        <button class="chip" onclick="selectChip(this,'f-suasana','simpel dan bersih')">Simpel & bersih</button>
+        <button class="chip" onclick="selectChip(this,'f-suasana','profesional dan serius')">Profesional</button>
+        <button class="chip" onclick="selectChip(this,'f-suasana','warna-warni dan fun')">Warna-warni & fun</button>
+        <button class="chip" onclick="selectChip(this,'f-suasana','minimalis dan fokus')">Minimalis</button>
+        <button class="chip" onclick="selectChip(this,'f-suasana','hangat dan friendly')">Hangat & friendly</button>
+      </div>
+      <input type="hidden" id="f-suasana" />
+    </div>
+    <div class="form-group">
+      <label class="form-label">Dipakai di mana?</label>
+      <div class="form-chips">
+        <button class="chip" onclick="selectChip(this,'f-device','HP — dioptimalkan untuk layar kecil')">HP</button>
+        <button class="chip" onclick="selectChip(this,'f-device','Laptop / PC — dioptimalkan untuk layar besar')">Laptop / PC</button>
+        <button class="chip" onclick="selectChip(this,'f-device','HP dan laptop — harus responsive di keduanya')">HP & Laptop</button>
+      </div>
+      <input type="hidden" id="f-device" />
+    </div>
+    <div class="form-group">
+      <label class="form-label">Warna atau referensi tampilan? (opsional)</label>
+      <div class="form-hint">Contoh: biru gelap, hijau natural, atau sebut aplikasi lain yang kamu suka tampilannya</div>
+      <input class="form-input" id="f-warna" placeholder="Tulis di sini..." />
+    </div>
+  </div>
+
+  <button class="generate-btn" onclick="generatePrompt()">Lihat prompt kamu →</button>
+
+  <div class="prompt-output" id="prompt-output">
+    <div class="prompt-output-label">Prompt siap pakai</div>
+    <div class="prompt-text" id="prompt-text"></div>
+    <button class="copy-btn" id="copy-btn" onclick="copyPrompt()">Salin prompt</button>
+  </div>
+</div>
+
+<div class="section" id="s5">
+  <div class="chapter-num">Chapter 5</div>
+  <h2 class="chapter-title">Dari brief<br><em>jadi prompt</em></h2>
+  <div class="prose">
+    <p>Kamu sudah tahu cara nulis prompt. Serius.</p>
+    <p>Setiap hari kamu melakukannya — waktu chat sama teman, waktu jelasin sesuatu ke rekan kerja.</p>
+    <p><em>"Eh, saya ada situasi begini, rencananya mau untuk ini, kira-kira gimana menurut kamu?"</em></p>
+    <p>Itu prompt. Kamu sudah ahli — cuma belum tahu namanya.</p>
+    <blockquote>Prompt itu kayak order makanan online. "Saya mau nasi goreng, tidak pedas, porsi besar, pakai telur dadar, antar ke lantai 3." Jelas. Spesifik. Tukang masaknya langsung ngerti.</blockquote>
+    <p>Brief yang kamu isi di chapter 4 tadi? Itu sudah 90% jadi prompt. Tinggal susun dengan pola yang benar.</p>
+    <div class="highlight">
+      <p><strong>Polanya cuma empat bagian:</strong></p>
+      <p>1. Situasi — untuk siapa dan masalah apa</p>
+      <p>2. Fungsi — apa yang bisa dilakukan untuk penggunanya</p>
+      <p>3. Tampilan — suasana, warna, HP atau laptop</p>
+      <p>4. Output — minta satu file HTML yang langsung bisa dibuka</p>
+    </div>
+    <p>Prompt pertama tidak harus sempurna. Karena Claude bisa diajak ngobrol. Kalau hasilnya kurang pas — bilang bagian mana yang perlu diubah. Dia akan revisi.</p>
+    <p style="font-family:var(--serif);font-style:italic;font-size:17px;color:var(--ink)">Bukan satu tembakan harus langsung kena. Tapi percakapan — sampai hasilnya benar-benar jadi milikmu.</p>
+    <p>Prompt dari brief kamu sudah otomatis terbuat di chapter 4. Kalau belum isi — kembali ke chapter 4 dulu, isi formnya, dan promptnya akan keluar sendiri.</p>
+  </div>
+</div>
+
+<div class="section" id="s6">
+  <div class="chapter-num">Chapter 6</div>
+  <h2 class="chapter-title">Build, test,<br><em>selesai</em></h2>
+  <div class="prose">
+    <p>Ini dia momennya. Prompt sudah ada. Claude sudah siap. Tinggal satu hal — paste dan enter.</p>
+    <p>Chapter ini bukan untuk dibaca — untuk dikerjakan.</p>
+    <p>Hasil pertama akan keluar dalam hitungan detik. Dan kemungkinan besar — reaksi pertama kamu adalah:</p>
+    <div class="highlight">
+      <p><em>"Warnanya tidak cocok."</em></p>
+      <p><em>"Fontnya jelek."</em></p>
+      <p><em>"Kok tampilannya begini."</em></p>
+    </div>
+    <p>Normal. Itu reaksi semua orang — termasuk saya. Mata kita judge visual duluan sebelum otak sempat cek fungsinya. Tapi sebelum minta revisi — cek satu hal dulu.</p>
+    <blockquote>Cek fungsinya dulu, bukan tampilannya. Kayak beli mobil baru — ban kempes, mesinnya bagus. Yang diperbaiki duluan bannya — bukan cat mobilnya.</blockquote>
+    <p><strong>Urutan revisi yang benar:</strong></p>
+    <div class="highlight">
+      <p>1. Fungsi — apakah sudah bekerja?</p>
+      <p>2. Layout — apakah susunannya masuk akal?</p>
+      <p>3. Tampilan — warna, font, ukuran</p>
+      <p>4. Detail kecil — jarak, tombol, teks</p>
+    </div>
+    <p>Tiga sampai lima putaran sudah cukup untuk dapat hasil yang layak dipakai. <strong>Jangan kejar sempurna.</strong></p>
+    <p style="font-family:var(--serif);font-style:italic;font-size:17px;color:var(--ink)">Selesai mengalahkan sempurna. Selalu.</p>
+  </div>
+  <div class="latihan">
+    <div class="latihan-label">Lakukan sekarang</div>
+    <div class="latihan-title">Buka Claude, paste, enter</div>
+    <p>1. Buka Claude di tab baru</p>
+    <p>2. Paste prompt dari chapter 4</p>
+    <p>3. Lihat hasilnya — cek fungsinya dulu</p>
+    <p>4. Minta satu revisi spesifik</p>
+    <p>Ulangi sampai fungsinya jalan. Setelah itu — lanjut ke chapter 7.</p>
+  </div>
+</div>
+
+<div class="section" id="s7">
+  <div class="chapter-num">Chapter 7</div>
+  <h2 class="chapter-title">Produk jadi,<br><em>sekarang apa?</em></h2>
+  <div class="prose">
+    <p>Kamu sudah sampai di sini. Produk pertama kamu jadi. Bisa dibuka. Bisa dipakai.</p>
+    <p>Luangkan satu detik untuk sadari itu — karena kebanyakan orang tidak pernah sampai di titik ini. Mereka masih di kepala. Masih "nanti." Masih "kalau sudah siap."</p>
+    <p><strong>Kamu sudah lewati itu semua.</strong></p>
+    <div class="divider"></div>
+    <p>Tapi ini bukan akhir. Ini baru permulaan. Langkah pertama setelah produk jadi — bukan poles tampilannya lagi. Bukan tambah fitur. Bukan tunggu sempurna.</p>
+    <blockquote>Cari satu teman yang masalahnya sama persis. Kirim ke dia. Minta dia coba. Duduk di sebelahnya kalau bisa. Lihat di mana dia bingung.</blockquote>
+    <p>Dari satu teman itu — kamu dapat dua hal: tahu apa yang perlu diperbaiki, dan tahu apakah masalahnya benar-benar terselesaikan. Dua hal itu lebih berharga dari seratus jam kamu poles sendiri.</p>
+    <div class="divider"></div>
+    <p>Setelah itu — jangan berhenti di satu produk. Karena sekarang kamu sudah punya sesuatu yang kebanyakan orang tidak punya —</p>
+    <p><strong>Kamu tahu cara melihat masalah sebagai produk.</strong></p>
+    <p>Waktu teman mengeluh soal pekerjaannya — kamu tidak lagi cuma dengerin. Kamu mulai mikir <em>"ini bisa diselesaikan dengan apa?"</em> Itu mindset builder. Dan kamu sudah ada di sana.</p>
+    <p style="font-family:var(--serif);font-style:italic;font-size:17px;color:var(--ink)">Masalah kecil yang diselesaikan hari ini lebih berharga dari ide besar yang tidak pernah jadi.</p>
+    <p>Kamu sudah buktikan itu. Sekarang lanjut — cari masalah berikutnya.</p>
+  </div>
+  <div class="latihan">
+    <div class="latihan-label">Tantangan 24 jam</div>
+    <div class="latihan-title">Dua hal saja</div>
+    <p>1. Share produk pertama kamu ke satu orang yang masalahnya sama. Minta dia coba. Catat feedbacknya.</p>
+    <p>2. Tulis satu masalah baru yang kamu lihat di sekitar kamu — yang mungkin bisa jadi produk berikutnya.</p>
+    <p style="margin-top:16px;color:rgba(255,255,255,0.4);font-size:13px">Selamat — kamu sudah jadi builder.</p>
+  </div>
+</div>
+
+<div class="nav-footer">
+  <button class="nav-btn" id="btn-prev" onclick="navigate(-1)" style="visibility:hidden">← Sebelumnya</button>
+  <span class="nav-progress" id="nav-progress">1 / 8</span>
+  <button class="nav-btn primary" id="btn-next" onclick="navigate(1)">Selanjutnya →</button>
+</div>
+
+</div>
+<script>
+let current=0;
+const total=8;
+function goTo(n){
+  document.querySelectorAll('.section').forEach((s,i)=>s.classList.toggle('active',i===n));
+  document.querySelectorAll('.toc-btn').forEach((b,i)=>b.classList.toggle('active',i===n));
+  current=n;
+  document.getElementById('btn-prev').style.visibility=n===0?'hidden':'visible';
+  document.getElementById('btn-next').style.visibility=n===total-1?'hidden':'visible';
+  document.getElementById('nav-progress').textContent=(n+1)+' / '+total;
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function navigate(dir){goTo(Math.max(0,Math.min(total-1,current+dir)));}
+function toggleChip(el,fieldId){
+  el.classList.toggle('selected');
+  const sel=Array.from(el.parentElement.querySelectorAll('.chip.selected')).map(c=>c.textContent).join(', ');
+  const inp=document.getElementById(fieldId);
+  if(inp&&inp.tagName==='INPUT'&&inp.type!=='hidden'){if(!inp.value||inp.dataset.fromChip){inp.value=sel;inp.dataset.fromChip='1';}}
+}
+function selectChip(el,fieldId,val){
+  el.parentElement.querySelectorAll('.chip').forEach(c=>c.classList.remove('selected'));
+  el.classList.add('selected');
+  document.getElementById(fieldId).value=val||el.textContent;
+}
+function generatePrompt(){
+  const siapa=document.getElementById('f-siapa').value.trim();
+  const kegiatan=document.getElementById('f-kegiatan').value.trim();
+  const solusiLama=document.getElementById('f-solusi-lama').value.trim();
+  const masalah=document.getElementById('f-masalah').value.trim();
+  const fungsi=document.getElementById('f-fungsi').value.trim();
+  const frekuensi=document.getElementById('f-frekuensi').value;
+  const suasana=document.getElementById('f-suasana').value;
+  const device=document.getElementById('f-device').value;
+  const warna=document.getElementById('f-warna').value.trim();
+  if(!siapa||!masalah||!fungsi){alert('Isi minimal: untuk siapa, masalah spesifik, dan fungsi aplikasinya dulu ya.');return;}
+  let prompt=`Buatkan saya aplikasi sederhana dalam satu file HTML yang langsung bisa dibuka di browser tanpa install apapun.\n\n`;
+  prompt+=`TARGET PENGGUNA:\n`;
+  prompt+=`Pengguna: ${siapa}\n`;
+  if(kegiatan) prompt+=`Kegiatan sehari-hari: ${kegiatan}\n`;
+  if(solusiLama) prompt+=`Sekarang mereka pakai: ${solusiLama}\n`;
+  prompt+=`\nMASALAH YANG DISELESAIKAN:\n${masalah}\n`;
+  prompt+=`\nFUNGSI APLIKASI:\n${fungsi}\n`;
+  if(frekuensi) prompt+=`Frekuensi penggunaan: ${frekuensi}\n`;
+  prompt+=`\nTAMPILAN:\n`;
+  if(suasana) prompt+=`Suasana: ${suasana}\n`;
+  if(device) prompt+=`Dioptimalkan untuk: ${device}\n`;
+  if(warna) prompt+=`Referensi warna/tampilan: ${warna}\n`;
+  prompt+=`\nSYARAT TEKNIS:\n`;
+  prompt+=`- Satu file HTML, tidak perlu login atau database\n`;
+  prompt+=`- Bisa langsung dipakai di browser\n`;
+  prompt+=`- Tampilan bersih, mudah digunakan oleh orang yang tidak terbiasa pakai aplikasi`;
+  document.getElementById('prompt-text').textContent=prompt;
+  const out=document.getElementById('prompt-output');
+  out.classList.add('visible');
+  out.scrollIntoView({behavior:'smooth',block:'start'});
+}
+function copyPrompt(){
+  const text=document.getElementById('prompt-text').textContent;
+  navigator.clipboard.writeText(text).then(()=>{
+    const btn=document.getElementById('copy-btn');
+    btn.textContent='Tersalin!';
+    btn.classList.add('copied');
+    setTimeout(()=>{btn.textContent='Salin prompt';btn.classList.remove('copied');},2000);
+  });
+}
+</script>
+</body>
+</html>
