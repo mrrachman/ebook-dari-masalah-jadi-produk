@@ -8,21 +8,14 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --ink:#1a1a18;
-  --ink2:#4a4a46;
-  --ink3:#8a8a84;
-  --paper:#faf8f4;
-  --paper2:#f2efe8;
-  --paper3:#e8e4d8;
-  --accent:#c17f3a;
-  --accent2:#8b4513;
-  --green:#2d6a4f;
-  --red:#8b1a1a;
+  --ink:#1a1a18;--ink2:#4a4a46;--ink3:#8a8a84;
+  --paper:#faf8f4;--paper2:#f2efe8;--paper3:#e8e4d8;
+  --accent:#c17f3a;--accent2:#8b4513;--green:#2d6a4f;
   --serif:'Playfair Display',Georgia,serif;
   --sans:'DM Sans',system-ui,sans-serif;
 }
 body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.7;font-size:16px}
-.page{max-width:720px;margin:0 auto;padding:0}
+.page{max-width:720px;margin:0 auto}
 .cover{background:var(--ink);color:var(--paper);padding:80px 48px 64px;position:relative;overflow:hidden}
 .cover::before{content:'';position:absolute;top:-60px;right:-60px;width:240px;height:240px;border:1px solid rgba(255,255,255,0.08);border-radius:50%}
 .cover::after{content:'';position:absolute;bottom:-40px;left:-40px;width:160px;height:160px;border:1px solid rgba(255,255,255,0.06);border-radius:50%}
@@ -85,6 +78,11 @@ body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-heigh
 .nav-btn.primary:hover{opacity:0.85}
 .nav-progress{font-size:12px;color:var(--ink3)}
 .divider{height:1px;background:var(--paper3);margin:32px 0}
+.back-to-brief{display:flex;flex-direction:column;align-items:center;gap:12px;background:var(--ink);border-radius:12px;padding:32px;margin-top:40px;text-align:center;cursor:pointer;transition:opacity 0.2s}
+.back-to-brief:hover{opacity:0.85}
+.back-to-brief-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);font-weight:500}
+.back-to-brief-title{font-family:var(--serif);font-size:22px;color:var(--paper);font-style:italic}
+.back-to-brief-sub{font-size:13px;color:rgba(255,255,255,0.4);font-weight:300}
 @media(max-width:600px){
   .cover{padding:48px 24px 40px}
   .cover-title{font-size:30px}
@@ -225,9 +223,7 @@ body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-heigh
     <p>Form ini bukan untuk bikin kamu jadi orang yang detail dan terstruktur. Tapi untuk kasih kamu kerangka yang sudah jadi — tinggal isi, tidak perlu mikir urutannya. Kayak IKEA. Tinggal ikuti nomornya — jadi.</p>
     <p>Dua bagian yang paling sering bikin orang stuck — dan paling sering bikin hasil Claude meleset — adalah <strong>fungsi</strong> dan <strong>tampilan.</strong> Bukan karena susah, tapi karena jawabannya terlalu umum.</p>
   </div>
-
   <div class="divider"></div>
-
   <div class="form-section">
     <div class="form-section-title">Bagian 1 — Untuk siapa?</div>
     <div class="form-section-sub">Target pengguna tools yang kamu buat</div>
@@ -254,7 +250,6 @@ body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-heigh
       <input class="form-input" id="f-solusi-lama" style="margin-top:8px" placeholder="Atau tulis sendiri..." />
     </div>
   </div>
-
   <div class="form-section">
     <div class="form-section-title">Bagian 2 — Masalah spesifik</div>
     <div class="form-section-sub">Bukan masalah umum — masalah nyata yang terjadi berulang</div>
@@ -264,13 +259,12 @@ body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-heigh
       <textarea class="form-textarea" id="f-masalah" placeholder="Tulis di sini..."></textarea>
     </div>
   </div>
-
   <div class="form-section">
     <div class="form-section-title">Bagian 3 — Fungsi aplikasi</div>
     <div class="form-section-sub">Bukan fitur yang kamu mau — tapi yang pengguna butuh</div>
     <div class="form-group">
       <label class="form-label">Kalau ada aplikasi ini, pengguna bisa ngapain yang sebelumnya tidak bisa?</label>
-      <div class="form-hint">Fokus ke perubahan untuk pengguna, bukan fitur teknis. Contoh: "lihat total pengeluaran otomatis tanpa hitung manual"</div>
+      <div class="form-hint">Fokus ke perubahan untuk pengguna, bukan fitur teknis.</div>
       <textarea class="form-textarea" id="f-fungsi" placeholder="Tulis 1–3 hal saja..."></textarea>
     </div>
     <div class="form-group">
@@ -284,7 +278,6 @@ body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-heigh
       <input type="hidden" id="f-frekuensi" />
     </div>
   </div>
-
   <div class="form-section">
     <div class="form-section-title">Bagian 4 — Tampilan & suasana</div>
     <div class="form-section-sub">Bukan "yang bagus" — tapi yang cocok untuk penggunanya</div>
@@ -314,9 +307,7 @@ body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-heigh
       <input class="form-input" id="f-warna" placeholder="Tulis di sini..." />
     </div>
   </div>
-
   <button class="generate-btn" onclick="generatePrompt()">Lihat prompt kamu →</button>
-
   <div class="prompt-output" id="prompt-output">
     <div class="prompt-output-label">Prompt siap pakai</div>
     <div class="prompt-text" id="prompt-text"></div>
@@ -343,7 +334,6 @@ body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-heigh
     </div>
     <p>Prompt pertama tidak harus sempurna. Karena Claude bisa diajak ngobrol. Kalau hasilnya kurang pas — bilang bagian mana yang perlu diubah. Dia akan revisi.</p>
     <p style="font-family:var(--serif);font-style:italic;font-size:17px;color:var(--ink)">Bukan satu tembakan harus langsung kena. Tapi percakapan — sampai hasilnya benar-benar jadi milikmu.</p>
-    <p>Prompt dari brief kamu sudah otomatis terbuat di chapter 4. Kalau belum isi — kembali ke chapter 4 dulu, isi formnya, dan promptnya akan keluar sendiri.</p>
   </div>
 </div>
 
@@ -407,6 +397,12 @@ body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-heigh
     <p>2. Tulis satu masalah baru yang kamu lihat di sekitar kamu — yang mungkin bisa jadi produk berikutnya.</p>
     <p style="margin-top:16px;color:rgba(255,255,255,0.4);font-size:13px">Selamat — kamu sudah jadi builder.</p>
   </div>
+
+  <div class="back-to-brief" onclick="goTo(4)">
+    <div class="back-to-brief-label">Siap bikin aplikasimu?</div>
+    <div class="back-to-brief-title">→ Kembali ke Form Brief</div>
+    <div class="back-to-brief-sub">Isi brief kamu — prompt langsung keluar otomatis</div>
+  </div>
 </div>
 
 <div class="nav-footer">
@@ -417,8 +413,7 @@ body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-heigh
 
 </div>
 <script>
-let current=0;
-const total=8;
+let current=0;const total=8;
 function goTo(n){
   document.querySelectorAll('.section').forEach((s,i)=>s.classList.toggle('active',i===n));
   document.querySelectorAll('.toc-btn').forEach((b,i)=>b.classList.toggle('active',i===n));
@@ -452,8 +447,7 @@ function generatePrompt(){
   const warna=document.getElementById('f-warna').value.trim();
   if(!siapa||!masalah||!fungsi){alert('Isi minimal: untuk siapa, masalah spesifik, dan fungsi aplikasinya dulu ya.');return;}
   let prompt=`Buatkan saya aplikasi sederhana dalam satu file HTML yang langsung bisa dibuka di browser tanpa install apapun.\n\n`;
-  prompt+=`TARGET PENGGUNA:\n`;
-  prompt+=`Pengguna: ${siapa}\n`;
+  prompt+=`TARGET PENGGUNA:\nPengguna: ${siapa}\n`;
   if(kegiatan) prompt+=`Kegiatan sehari-hari: ${kegiatan}\n`;
   if(solusiLama) prompt+=`Sekarang mereka pakai: ${solusiLama}\n`;
   prompt+=`\nMASALAH YANG DISELESAIKAN:\n${masalah}\n`;
@@ -463,10 +457,7 @@ function generatePrompt(){
   if(suasana) prompt+=`Suasana: ${suasana}\n`;
   if(device) prompt+=`Dioptimalkan untuk: ${device}\n`;
   if(warna) prompt+=`Referensi warna/tampilan: ${warna}\n`;
-  prompt+=`\nSYARAT TEKNIS:\n`;
-  prompt+=`- Satu file HTML, tidak perlu login atau database\n`;
-  prompt+=`- Bisa langsung dipakai di browser\n`;
-  prompt+=`- Tampilan bersih, mudah digunakan oleh orang yang tidak terbiasa pakai aplikasi`;
+  prompt+=`\nSYARAT TEKNIS:\n- Satu file HTML, tidak perlu login atau database\n- Bisa langsung dipakai di browser\n- Tampilan bersih, mudah digunakan oleh orang yang tidak terbiasa pakai aplikasi`;
   document.getElementById('prompt-text').textContent=prompt;
   const out=document.getElementById('prompt-output');
   out.classList.add('visible');
@@ -476,8 +467,7 @@ function copyPrompt(){
   const text=document.getElementById('prompt-text').textContent;
   navigator.clipboard.writeText(text).then(()=>{
     const btn=document.getElementById('copy-btn');
-    btn.textContent='Tersalin!';
-    btn.classList.add('copied');
+    btn.textContent='Tersalin!';btn.classList.add('copied');
     setTimeout(()=>{btn.textContent='Salin prompt';btn.classList.remove('copied');},2000);
   });
 }
