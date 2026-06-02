@@ -25,11 +25,11 @@ body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-heigh
 .cover-sub{font-size:15px;color:rgba(255,255,255,0.55);margin-bottom:48px;font-weight:300;line-height:1.6}
 .cover-author{display:flex;align-items:center;gap:12px}
 .cover-author-dot{width:32px;height:1px;background:var(--accent)}
-.cover-author-name{font-size:13px;color:rgba(255,255,255,0.4);letter-spacing:1px;text-transform:uppercase}
+.cover-author-name{font-size:13px;color:rgba(255,255,255,0.4);letter-spacing:1px}
 .toc{background:var(--paper2);border-bottom:1px solid var(--paper3);padding:0 24px}
 .toc-inner{display:flex;gap:0;overflow-x:auto;scrollbar-width:none}
 .toc-inner::-webkit-scrollbar{display:none}
-.toc-btn{flex-shrink:0;padding:14px 12px;font-size:11px;font-family:var(--sans);background:none;border:none;border-bottom:2px solid transparent;color:var(--ink3);cursor:pointer;transition:all 0.2s;white-space:nowrap;font-weight:400}
+.toc-btn{flex-shrink:0;padding:14px 12px;font-size:11px;font-family:var(--sans);background:none;border:none;border-bottom:2px solid transparent;color:var(--ink);cursor:pointer;transition:all 0.2s;white-space:nowrap;font-weight:400}
 .toc-btn:hover{color:var(--ink);border-bottom-color:var(--paper3)}
 .toc-btn.active{color:var(--accent2);border-bottom-color:var(--accent);font-weight:500}
 .section{display:none;padding:48px 48px 64px;animation:fadeIn 0.3s ease}
@@ -49,10 +49,8 @@ body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-heigh
 .latihan-title{font-family:var(--serif);font-size:20px;margin-bottom:16px;font-weight:600}
 .latihan p{font-size:14px;color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:8px;font-weight:300}
 .latihan p:last-child{margin-bottom:0}
-
-/* ONBOARDING STEPS */
 .step-card{display:flex;gap:16px;margin-bottom:20px;align-items:flex-start}
-.step-num{width:36px;height:36px;border-radius:50%;background:var(--ink);color:var(--paper);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:500;flex-shrink:0;font-family:var(--serif)}
+.step-num{width:36px;height:36px;border-radius:50%;background:var(--ink);color:var(--paper);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:500;flex-shrink:0}
 .step-content{flex:1}
 .step-title{font-size:15px;font-weight:500;color:var(--ink);margin-bottom:4px}
 .step-desc{font-size:14px;color:var(--ink3);line-height:1.6;font-weight:300}
@@ -60,8 +58,6 @@ body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-heigh
 .warning-box{background:#fff8f0;border:1px solid #f0d4a8;border-radius:8px;padding:16px 20px;margin:24px 0}
 .warning-box p{font-size:14px;color:#8b4513;margin-bottom:0;font-weight:300}
 .warning-box strong{color:#6b3010}
-
-/* FORM */
 .form-section{margin-bottom:32px}
 .form-section-title{font-family:var(--serif);font-size:18px;margin-bottom:4px;color:var(--ink);font-weight:600}
 .form-section-sub{font-size:13px;color:var(--ink3);margin-bottom:16px;font-weight:300}
@@ -69,7 +65,7 @@ body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-heigh
 .form-label{display:block;font-size:13px;font-weight:500;color:var(--ink);margin-bottom:4px}
 .form-hint{font-size:12px;color:var(--ink3);margin-bottom:6px;font-style:italic;line-height:1.5}
 .form-hint span{color:var(--green);font-style:normal}
-.form-hint .wrong{color:var(--red,#8b1a1a);font-style:normal}
+.form-hint .wrong{color:#8b1a1a;font-style:normal}
 .form-input,.form-textarea{width:100%;padding:10px 14px;font-family:var(--sans);font-size:14px;border:1px solid var(--paper3);border-radius:8px;background:white;color:var(--ink);outline:none;transition:border-color 0.2s;font-weight:300}
 .form-input:focus,.form-textarea:focus{border-color:var(--accent)}
 .form-textarea{resize:vertical;min-height:80px;line-height:1.6}
@@ -113,10 +109,10 @@ body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-heigh
 <div class="cover">
   <div class="cover-tag">Panduan Praktis</div>
   <h1 class="cover-title">Dari Masalah<br>Jadi Produk —<br><em>Dalam Satu Hari</em></h1>
-  <p class="cover-sub">Panduan build aplikasi pertamamu di Claude<br>Tanpa perlu ngerti dalamnya</p>
+  <p class="cover-sub">Panduan build aplikasi pertamamu dengan AI<br>Tanpa perlu ngerti dalamnya</p>
   <div class="cover-author">
     <div class="cover-author-dot"></div>
-    <span class="cover-author-name">Muh Rachdian Rachman</span>
+    <span class="cover-author-name">@ryanrachdian</span>
   </div>
 </div>
 
@@ -128,13 +124,12 @@ body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-heigh
     <button class="toc-btn" onclick="goTo(3)">3 · Validasi</button>
     <button class="toc-btn" onclick="goTo(4)">4 · Brief</button>
     <button class="toc-btn" onclick="goTo(5)">5 · Prompt</button>
-    <button class="toc-btn" onclick="goTo(6)">6 · Buka Claude</button>
+    <button class="toc-btn" onclick="goTo(6)">6 · Buka Gemini</button>
     <button class="toc-btn" onclick="goTo(7)">7 · Build</button>
     <button class="toc-btn" onclick="goTo(8)">8 · Next step</button>
   </div>
 </nav>
 
-<!-- INTRO -->
 <div class="section active" id="s0">
   <div class="prose">
     <p style="font-size:13px;color:var(--ink3);margin-bottom:32px;text-transform:uppercase;letter-spacing:2px;font-weight:500">Pengantar</p>
@@ -150,30 +145,27 @@ body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-heigh
   </div>
 </div>
 
-<!-- CH1 -->
 <div class="section" id="s1">
   <div class="chapter-num">Chapter 1</div>
   <h2 class="chapter-title">Mulai dari <em>orang</em>,<br>bukan dari ide</h2>
   <div class="prose">
     <p>Saya sudah coba banyak AI. Masing-masing ada kelebihannya. Tapi setiap kali hasilnya keluar, saya harus baca berulang, edit sana-sini, dan ujungnya masih jauh dari yang saya bayangkan.</p>
-    <p>Sampai saya coba Claude. Bukan karena dia lebih canggih. Tapi karena hasilnya lebih <em>ngerti</em> — lebih dekat dengan apa yang saya maksud. Seperti ngobrol ke orang yang benar-benar dengerin, bukan cuma menunggu giliran bicara.</p>
+    <p>Sampai saya temukan cara yang benar — bukan soal AI mana yang paling canggih. Tapi soal seberapa jelas instruksi yang saya kasih.</p>
     <blockquote>AI secanggih apapun, kalau instruksinya berantakan, hasilnya ikut berantakan.</blockquote>
     <p>Kayak kamu minta tolong teman cariin barang di kamarmu — tapi kamu sendiri tidak tahu barangnya ada di mana. Dia mau bantu, tapi mau mulai dari mana?</p>
     <div class="divider"></div>
     <p>Kesalahan pertama yang hampir semua orang lakukan — termasuk saya dulu — adalah langsung loncat ke <em>"mau bikin apa"</em> tanpa tahu <em>"untuk siapa dan kenapa."</em></p>
-    <p>Suatu hari saya perlu ringkasan laporan keuangan dari file PDF puluhan halaman. Saya ceritakan dulu <em>siapa yang akan baca</em> dan <em>apa yang mereka perlu tahu</em>. Hasilnya keluar dalam hitungan detik. Rapi. Sesuai. Tidak perlu diedit.</p>
+    <p>Suatu hari saya perlu ringkasan laporan keuangan dari file PDF puluhan halaman. Saya ceritakan dulu siapa yang akan baca dan apa yang mereka perlu tahu. Hasilnya keluar dalam hitungan detik. Rapi. Sesuai. Tidak perlu diedit.</p>
   </div>
   <div class="latihan">
     <div class="latihan-label">Latihan</div>
     <div class="latihan-title">Fokus ke dirimu dulu</div>
-    <p>Tulis 3 kalimat tentang dirimu sendiri:</p>
     <p>1. Kamu sehari-hari ngapain — kerja apa yang melibatkan data atau informasi?</p>
     <p>2. Bagian mana yang paling sering bikin kamu ulang dari awal atau buang waktu?</p>
     <p>3. Sekarang kamu selesaikan itu pakai cara apa?</p>
   </div>
 </div>
 
-<!-- CH2 -->
 <div class="section" id="s2">
   <div class="chapter-num">Chapter 2</div>
   <h2 class="chapter-title">Satu masalah,<br><em>satu produk</em></h2>
@@ -200,7 +192,6 @@ body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-heigh
   </div>
 </div>
 
-<!-- CH3 -->
 <div class="section" id="s3">
   <div class="chapter-num">Chapter 3</div>
   <h2 class="chapter-title"><em>Validasi</em><br>sebelum build</h2>
@@ -226,7 +217,6 @@ body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-heigh
   </div>
 </div>
 
-<!-- CH4 FORM -->
 <div class="section" id="s4">
   <div class="chapter-num">Chapter 4</div>
   <h2 class="chapter-title">Isi <em>brief</em><br>yang benar</h2>
@@ -235,26 +225,21 @@ body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-heigh
     <blockquote>Kayak kamu mau potong rambut dan bilang "terserah" ke tukang cukur. Jangan komplain kalau hasilnya tidak sesuai.</blockquote>
     <p>Form ini bukan untuk bikin kamu jadi orang yang detail dan terstruktur. Tapi untuk kasih kamu kerangka yang sudah jadi — tinggal isi. Kayak IKEA. Tinggal ikuti nomornya — jadi.</p>
   </div>
-
   <div class="divider"></div>
 
-  <!-- BAGIAN 1 -->
   <div class="form-section">
     <div class="form-section-title">Bagian 1 — Pengguna Aplikasi</div>
     <div class="form-section-sub">Siapa yang akan pakai dan apa masalah mereka</div>
-
     <div class="form-group">
       <label class="form-label">Siapa pengguna utama aplikasi yang akan kamu buat?</label>
       <div class="form-hint">Sebutkan profesi dan aktivitas spesifiknya.<br><span>✓ Contoh: "Pemilik warung makan yang catat pesanan pelanggan setiap hari"</span></div>
       <input class="form-input" id="f-siapa" placeholder="Tulis di sini..." />
     </div>
-
     <div class="form-group">
       <label class="form-label">Pekerjaan berulang apa yang paling menyita waktu mereka?</label>
       <div class="form-hint">Fokus ke pekerjaan yang bisa dibantu alat digital — bukan aktivitas fisik.<br><span>✓ Contoh: "Rekap pesanan dari WhatsApp ke buku tulis setiap hari"</span></div>
       <textarea class="form-textarea" id="f-kegiatan" placeholder="Tulis di sini..."></textarea>
     </div>
-
     <div class="form-group">
       <label class="form-label">Selama ini mereka tangani pekerjaan itu dengan cara apa?</label>
       <div class="form-chips">
@@ -269,17 +254,14 @@ body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-heigh
     </div>
   </div>
 
-  <!-- BAGIAN 2 -->
   <div class="form-section">
     <div class="form-section-title">Bagian 2 — Masalah & Dampaknya</div>
     <div class="form-section-sub">Seberapa besar masalah ini dalam kehidupan mereka</div>
-
     <div class="form-group">
       <label class="form-label">Apa yang paling sering salah atau terlewat kalau dikerjakan dengan cara lama?</label>
       <div class="form-hint"><span>✓ Contoh: "Sering salah hitung, data hilang, harus ulang dari awal"</span></div>
       <textarea class="form-textarea" id="f-masalah" placeholder="Tulis di sini..."></textarea>
     </div>
-
     <div class="form-group">
       <label class="form-label">Berapa waktu yang terbuang setiap kali dikerjakan manual?</label>
       <div class="form-chips">
@@ -292,11 +274,9 @@ body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-heigh
     </div>
   </div>
 
-  <!-- BAGIAN 3 -->
   <div class="form-section">
     <div class="form-section-title">Bagian 3 — Fungsi Aplikasi</div>
     <div class="form-section-sub">Apa yang berubah untuk pengguna setelah pakai aplikasi ini</div>
-
     <div class="form-group">
       <label class="form-label">Setelah menggunakan aplikasi ini, apa yang berubah untuk pengguna?</label>
       <div class="form-hint">
@@ -305,17 +285,15 @@ body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-heigh
       </div>
       <textarea class="form-textarea" id="f-fungsi" placeholder="Tulis 1–3 perubahan nyata untuk pengguna..."></textarea>
     </div>
-
     <div class="form-group">
       <label class="form-label">Siapa yang akan menggunakan aplikasi ini?</label>
       <div class="form-chips">
         <button class="chip" onclick="selectChip(this,'f-pengguna','hanya saya sendiri')">Hanya saya sendiri</button>
-        <button class="chip" onclick="selectChip(this,'f-pengguna','saya dan beberapa orang')">Saya dan tim kecil</button>
+        <button class="chip" onclick="selectChip(this,'f-pengguna','saya dan tim kecil')">Saya dan tim kecil</button>
         <button class="chip" onclick="selectChip(this,'f-pengguna','orang lain — saya yang buatkan')">Orang lain — saya buatkan</button>
       </div>
       <input type="hidden" id="f-pengguna" />
     </div>
-
     <div class="form-group">
       <label class="form-label">Seberapa familiar pengguna dengan aplikasi digital?</label>
       <div class="form-chips">
@@ -327,11 +305,9 @@ body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-heigh
     </div>
   </div>
 
-  <!-- BAGIAN 4 -->
   <div class="form-section">
     <div class="form-section-title">Bagian 4 — Tampilan & Output</div>
     <div class="form-section-sub">Bukan "yang bagus" — tapi yang cocok untuk penggunanya</div>
-
     <div class="form-group">
       <label class="form-label">Suasana tampilan yang cocok untuk penggunanya?</label>
       <div class="form-chips">
@@ -343,7 +319,6 @@ body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-heigh
       </div>
       <input type="hidden" id="f-suasana" />
     </div>
-
     <div class="form-group">
       <label class="form-label">Aplikasi ini akan dibuka di mana?</label>
       <div class="form-chips">
@@ -353,7 +328,6 @@ body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-heigh
       </div>
       <input type="hidden" id="f-device" />
     </div>
-
     <div class="form-group">
       <label class="form-label">Bahasa yang digunakan dalam aplikasi?</label>
       <div class="form-chips">
@@ -363,7 +337,6 @@ body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-heigh
       </div>
       <input type="hidden" id="f-bahasa" />
     </div>
-
     <div class="form-group">
       <label class="form-label">Warna atau referensi tampilan? (opsional)</label>
       <div class="form-hint">Contoh: biru gelap, hijau natural, atau sebut aplikasi lain yang kamu suka tampilannya</div>
@@ -372,16 +345,14 @@ body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-heigh
   </div>
 
   <button class="generate-btn" onclick="generatePrompt()">Generate prompt kamu →</button>
-
   <div class="prompt-output" id="prompt-output">
     <div class="prompt-output-label">Prompt siap pakai</div>
     <div class="prompt-text" id="prompt-text"></div>
     <button class="copy-btn" id="copy-btn" onclick="copyPrompt()">Salin prompt</button>
-    <div style="margin-top:16px;font-size:12px;color:rgba(255,255,255,0.35)">Setelah salin — lanjut ke chapter 6 untuk buka Claude</div>
+    <div style="margin-top:16px;font-size:12px;color:rgba(255,255,255,0.35)">Setelah salin — lanjut ke chapter 6 untuk buka Gemini</div>
   </div>
 </div>
 
-<!-- CH5 -->
 <div class="section" id="s5">
   <div class="chapter-num">Chapter 5</div>
   <h2 class="chapter-title">Dari brief<br><em>jadi prompt</em></h2>
@@ -391,7 +362,7 @@ body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-heigh
     <p><em>"Eh, saya ada situasi begini, rencananya mau untuk ini, kira-kira gimana menurut kamu?"</em></p>
     <p>Itu prompt. Kamu sudah ahli — cuma belum tahu namanya.</p>
     <blockquote>Prompt itu kayak order makanan online. "Saya mau nasi goreng, tidak pedas, porsi besar, pakai telur dadar, antar ke lantai 3." Jelas. Spesifik. Tukang masaknya langsung ngerti.</blockquote>
-    <p>Brief yang kamu isi di chapter 4 tadi? Itu sudah 90% jadi prompt. Tinggal susun dengan pola yang benar — dan form tadi sudah kerjakan itu untukmu.</p>
+    <p>Brief yang kamu isi di chapter 4 tadi? Itu sudah 90% jadi prompt. Form tadi sudah kerjakan itu untukmu — tinggal salin dan paste.</p>
     <div class="highlight">
       <p><strong>Prompt yang dihasilkan punya:</strong></p>
       <p>✓ Konteks pengguna yang spesifik</p>
@@ -401,7 +372,7 @@ body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-heigh
       <p>✓ Bahasa yang tepat</p>
       <p>✓ Support dark & light mode</p>
     </div>
-    <p>Prompt pertama tidak harus sempurna. Claude bisa diajak ngobrol — kalau hasilnya kurang pas, bilang bagian mana yang perlu diubah.</p>
+    <p>Prompt pertama tidak harus sempurna. Gemini bisa diajak ngobrol — kalau hasilnya kurang pas, bilang bagian mana yang perlu diubah.</p>
     <p style="font-family:var(--serif);font-style:italic;font-size:17px;color:var(--ink)">Bukan satu tembakan harus langsung kena. Tapi percakapan — sampai hasilnya benar-benar jadi milikmu.</p>
   </div>
   <div class="latihan">
@@ -412,76 +383,66 @@ body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-heigh
   </div>
 </div>
 
-<!-- CH6 ONBOARDING CLAUDE -->
 <div class="section" id="s6">
   <div class="chapter-num">Chapter 6</div>
-  <h2 class="chapter-title">Buka Claude —<br><em>siap dalam 2 menit</em></h2>
+  <h2 class="chapter-title">Buka Gemini —<br><em>siap dalam 2 menit</em></h2>
   <div class="prose">
-    <p>Prompt sudah ada di tangan. Sekarang kamu butuh satu tempat untuk paste — yaitu Claude.</p>
-    <p>Claude adalah AI buatan Anthropic yang akan membaca prompt kamu dan langsung membangun aplikasinya. Gratis untuk dipakai. Tidak perlu install apapun — cukup browser.</p>
+    <p>Prompt sudah ada di tangan. Sekarang kamu butuh satu tempat untuk paste — yaitu Gemini.</p>
+    <p>Gemini adalah AI buatan Google yang akan membaca prompt kamu dan langsung membangun aplikasinya di fitur Canvas. Gratis. Tidak perlu install apapun. Kamu sudah punya akunnya — karena akun Google kamu sudah cukup.</p>
   </div>
-
   <div class="divider"></div>
-
   <div class="step-card">
     <div class="step-num">1</div>
     <div class="step-content">
-      <div class="step-title">Buka browser di HP atau laptop kamu</div>
-      <div class="step-desc">Chrome, Safari, atau browser apapun yang biasa kamu pakai.</div>
+      <div class="step-title">Buka aplikasi Gemini di HP kamu</div>
+      <div class="step-desc">Cari aplikasi <span class="step-highlight">Gemini</span> di HP kamu. Kalau belum ada — download gratis di Play Store atau App Store. Atau buka browser dan ketik <span class="step-highlight">gemini.google.com</span></div>
     </div>
   </div>
-
   <div class="step-card">
     <div class="step-num">2</div>
     <div class="step-content">
-      <div class="step-title">Ketik alamat ini di browser</div>
-      <div class="step-desc">Ketik <span class="step-highlight">claude.ai</span> lalu tekan Enter. Ini website resmi Claude.</div>
+      <div class="step-title">Login pakai akun Google</div>
+      <div class="step-desc">Pakai akun Google yang sama dengan Gmail kamu. Tidak perlu daftar baru — langsung masuk.</div>
     </div>
   </div>
-
   <div class="step-card">
     <div class="step-num">3</div>
     <div class="step-content">
-      <div class="step-title">Belum punya akun? Daftar gratis</div>
-      <div class="step-desc">Klik <span class="step-highlight">Sign up</span> — daftar pakai email kamu. Gratis. Tidak perlu kartu kredit. Selesai dalam 1 menit.</div>
+      <div class="step-title">Klik tanda + di samping kotak tulis pesan</div>
+      <div class="step-desc">Di bagian bawah layar ada kotak untuk ketik pesan. Di sebelahnya ada tanda <span class="step-highlight">+</span> — klik tanda itu.</div>
     </div>
   </div>
-
   <div class="step-card">
     <div class="step-num">4</div>
     <div class="step-content">
-      <div class="step-title">Sudah punya akun? Langsung masuk</div>
-      <div class="step-desc">Klik <span class="step-highlight">Sign in</span> — masuk dengan email dan password kamu.</div>
+      <div class="step-title">Pilih Canvas</div>
+      <div class="step-desc">Setelah klik +, muncul beberapa pilihan. Pilih <span class="step-highlight">Canvas</span>. Di sinilah aplikasimu akan dibangun dan langsung bisa dilihat hasilnya.</div>
     </div>
   </div>
-
   <div class="step-card">
     <div class="step-num">5</div>
     <div class="step-content">
-      <div class="step-title">Klik "New chat"</div>
-      <div class="step-desc">Setelah masuk — kamu akan lihat tombol <span class="step-highlight">New chat</span> di sebelah kiri. Klik tombol itu.</div>
+      <div class="step-title">Paste prompt di kotak tulis</div>
+      <div class="step-desc">Tekan lama di kotak tulis pesan → pilih <span class="step-highlight">Paste</span>. Prompt dari chapter 4 akan muncul di sana.</div>
     </div>
   </div>
-
   <div class="step-card">
     <div class="step-num">6</div>
     <div class="step-content">
-      <div class="step-title">Kamu siap</div>
-      <div class="step-desc">Ada kotak teks kosong di bawah layar. Di situ tempat kamu paste prompt. Lanjut ke chapter 7.</div>
+      <div class="step-title">Kirim — aplikasimu langsung dibangun</div>
+      <div class="step-desc">Klik tombol kirim. Gemini akan membaca prompt kamu dan membangun aplikasinya langsung di Canvas. Tunggu beberapa detik — lanjut ke chapter 7.</div>
     </div>
   </div>
-
   <div class="warning-box">
-    <p><strong>Satu hal yang perlu kamu tahu:</strong> Akun gratis Claude punya batasan jumlah pesan per hari. Kalau tiba-tiba tidak bisa kirim pesan — itu bukan error. Cukup tunggu beberapa jam, limit-nya akan reset. Jadi manfaatkan setiap pesan dengan baik — baca chapter 7 dulu sebelum mulai revisi.</p>
+    <p><strong>Tips:</strong> Gemini Canvas menampilkan aplikasi langsung di sebelah kanan layar — kamu bisa langsung lihat hasilnya sambil chat. Kalau ada yang kurang — tinggal minta revisi di kotak chat yang sama. Tidak perlu mulai dari awal.</p>
   </div>
 </div>
 
-<!-- CH7 BUILD -->
 <div class="section" id="s7">
   <div class="chapter-num">Chapter 7</div>
   <h2 class="chapter-title">Build, test,<br><em>selesai</em></h2>
   <div class="prose">
-    <p>Prompt sudah ada. Claude sudah terbuka. Tinggal satu hal — paste dan enter.</p>
+    <p>Prompt sudah di paste. Gemini Canvas sudah terbuka. Aplikasimu sedang dibangun.</p>
     <p>Chapter ini bukan untuk dibaca — untuk dikerjakan.</p>
     <p>Hasil pertama akan keluar dalam hitungan detik. Dan kemungkinan besar — reaksi pertama kamu adalah:</p>
     <div class="highlight">
@@ -489,9 +450,8 @@ body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-heigh
       <p><em>"Fontnya jelek."</em></p>
       <p><em>"Kok tampilannya begini."</em></p>
     </div>
-    <p>Normal. Itu reaksi semua orang — termasuk saya. Mata kita judge visual duluan sebelum otak sempat cek fungsinya.</p>
+    <p>Normal. Itu reaksi semua orang — termasuk saya.</p>
     <blockquote>Cek fungsinya dulu, bukan tampilannya. Kayak beli mobil baru — ban kempes, mesinnya bagus. Yang diperbaiki duluan bannya — bukan cat mobilnya.</blockquote>
-    <p><strong>Urutan revisi yang benar:</strong></p>
     <div class="highlight">
       <p>1. Fungsi — apakah sudah bekerja?</p>
       <p>2. Layout — apakah susunannya masuk akal?</p>
@@ -505,16 +465,14 @@ body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-heigh
   <div class="latihan">
     <div class="latihan-label">Lakukan sekarang</div>
     <div class="latihan-title">Paste, lihat, revisi</div>
-    <p>1. Paste prompt di kotak chat Claude</p>
-    <p>2. Tekan Enter — tunggu hasilnya</p>
+    <p>1. Paste prompt di Gemini Canvas</p>
+    <p>2. Tunggu hasilnya keluar</p>
     <p>3. Cek fungsinya dulu — bukan tampilannya</p>
     <p>4. Kalau ada yang kurang — minta revisi satu per satu, spesifik</p>
     <p>5. Ulangi sampai fungsinya jalan</p>
-    <p style="margin-top:12px;color:rgba(255,255,255,0.4);font-size:12px">Ingat batasan pesan gratis — gunakan dengan efisien.</p>
   </div>
 </div>
 
-<!-- CH8 NEXT STEP -->
 <div class="section" id="s8">
   <div class="chapter-num">Chapter 8</div>
   <h2 class="chapter-title">Produk jadi,<br><em>sekarang apa?</em></h2>
@@ -525,7 +483,7 @@ body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-heigh
     <div class="divider"></div>
     <p>Langkah pertama setelah produk jadi — bukan poles tampilannya lagi. Bukan tambah fitur.</p>
     <blockquote>Cari satu orang yang masalahnya sama persis. Kirim ke dia. Minta dia coba. Duduk di sebelahnya kalau bisa. Lihat di mana dia bingung.</blockquote>
-    <p>Dari satu orang itu — kamu dapat dua hal: tahu apa yang perlu diperbaiki, dan tahu apakah masalahnya benar-benar terselesaikan. Dua hal itu lebih berharga dari seratus jam kamu poles sendiri.</p>
+    <p>Dari satu orang itu — kamu dapat dua hal: tahu apa yang perlu diperbaiki, dan tahu apakah masalahnya benar-benar terselesaikan.</p>
     <div class="divider"></div>
     <p>Setelah itu — jangan berhenti di satu produk. Karena sekarang kamu sudah punya sesuatu yang kebanyakan orang tidak punya —</p>
     <p><strong>Kamu tahu cara melihat masalah sebagai produk.</strong></p>
@@ -539,7 +497,6 @@ body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-heigh
     <p>2. Tulis satu masalah baru yang kamu lihat di sekitar kamu — yang mungkin bisa jadi produk berikutnya.</p>
     <p style="margin-top:16px;color:rgba(255,255,255,0.4);font-size:13px">Selamat — kamu sudah jadi builder.</p>
   </div>
-
   <div class="back-to-brief" onclick="goTo(4)">
     <div class="back-to-brief-label">Siap bikin aplikasi berikutnya?</div>
     <div class="back-to-brief-title">→ Kembali ke Form Brief</div>
@@ -591,13 +548,12 @@ function generatePrompt(){
   const bahasa=document.getElementById('f-bahasa').value;
   const warna=document.getElementById('f-warna').value.trim();
   if(!siapa||!masalah||!fungsi){alert('Isi minimal: pengguna utama, masalah, dan fungsi aplikasinya dulu ya.');return;}
-  let p=`Buatkan saya aplikasi dalam satu file HTML yang langsung bisa dibuka di browser tanpa install apapun.\n\n`;
+  let p=`Buatkan saya aplikasi dalam satu file HTML yang langsung bisa dibuka di browser tanpa install apapun. Tampilkan hasilnya di Canvas.\n\n`;
   p+=`TARGET PENGGUNA:\n`;
   p+=`Pengguna utama: ${siapa}\n`;
   if(kegiatan) p+=`Pekerjaan berulang mereka: ${kegiatan}\n`;
   if(solusiLama) p+=`Cara mereka tangani selama ini: ${solusiLama}\n`;
-  p+=`\nMASALAH & DAMPAK:\n`;
-  p+=`${masalah}\n`;
+  p+=`\nMASALAH & DAMPAK:\n${masalah}\n`;
   if(waktu) p+=`Waktu terbuang per sesi: ${waktu}\n`;
   p+=`\nFUNGSI APLIKASI:\n${fungsi}\n`;
   if(pengguna) p+=`\nPengguna aplikasi: ${pengguna}\n`;
