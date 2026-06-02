@@ -11,6 +11,7 @@
   --ink:#1a1a18;--ink2:#4a4a46;--ink3:#8a8a84;
   --paper:#faf8f4;--paper2:#f2efe8;--paper3:#e8e4d8;
   --accent:#c17f3a;--accent2:#8b4513;--green:#2d6a4f;
+  --red:#8b1a1a;
   --serif:'Playfair Display',Georgia,serif;
   --sans:'DM Sans',system-ui,sans-serif;
 }
@@ -58,25 +59,35 @@ body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-heigh
 .warning-box{background:#fff8f0;border:1px solid #f0d4a8;border-radius:8px;padding:16px 20px;margin:24px 0}
 .warning-box p{font-size:14px;color:#8b4513;margin-bottom:0;font-weight:300}
 .warning-box strong{color:#6b3010}
-.form-section{margin-bottom:32px}
-.form-section-title{font-family:var(--serif);font-size:18px;margin-bottom:4px;color:var(--ink);font-weight:600}
-.form-section-sub{font-size:13px;color:var(--ink3);margin-bottom:16px;font-weight:300}
+.note-box{background:var(--paper2);border:1px solid var(--paper3);border-radius:8px;padding:14px 18px;margin-top:8px}
+.note-box p{font-size:12px;color:var(--ink3);margin-bottom:0;font-weight:300;font-style:italic}
+
+/* FORM */
+.form-section{margin-bottom:36px}
+.form-section-title{font-family:var(--serif);font-size:20px;margin-bottom:4px;color:var(--ink);font-weight:600}
+.form-section-sub{font-size:13px;color:var(--ink3);margin-bottom:20px;font-weight:300}
 .form-group{margin-bottom:20px}
-.form-label{display:block;font-size:13px;font-weight:500;color:var(--ink);margin-bottom:4px}
-.form-hint{font-size:12px;color:var(--ink3);margin-bottom:6px;font-style:italic;line-height:1.5}
-.form-hint span{color:var(--green);font-style:normal}
-.form-hint .wrong{color:#8b1a1a;font-style:normal}
+.form-label{display:block;font-size:14px;font-weight:500;color:var(--ink);margin-bottom:4px}
+.form-badge{display:inline-block;font-size:10px;padding:2px 8px;border-radius:10px;margin-left:6px;font-weight:500;vertical-align:middle}
+.form-badge.wajib{background:var(--ink);color:var(--paper)}
+.form-badge.opsional{background:var(--paper3);color:var(--ink3)}
+.form-hint{font-size:12px;color:var(--ink3);margin-bottom:6px;line-height:1.6}
+.form-hint .ok{color:var(--green);font-style:normal}
+.form-hint .no{color:var(--red);font-style:normal}
 .form-input,.form-textarea{width:100%;padding:10px 14px;font-family:var(--sans);font-size:14px;border:1px solid var(--paper3);border-radius:8px;background:white;color:var(--ink);outline:none;transition:border-color 0.2s;font-weight:300}
 .form-input:focus,.form-textarea:focus{border-color:var(--accent)}
 .form-textarea{resize:vertical;min-height:80px;line-height:1.6}
-.form-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
-.chip{padding:6px 14px;border:1px solid var(--paper3);border-radius:20px;font-size:13px;cursor:pointer;transition:all 0.15s;background:white;color:var(--ink2);font-family:var(--sans);font-weight:300}
+.form-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.chip{padding:7px 14px;border:1px solid var(--paper3);border-radius:20px;font-size:13px;cursor:pointer;transition:all 0.15s;background:white;color:var(--ink2);font-family:var(--sans);font-weight:300}
 .chip:hover{border-color:var(--accent);color:var(--accent2)}
 .chip.selected{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.fitur-inputs{display:flex;flex-direction:column;gap:8px;margin-top:6px}
+.ai-extra{display:none;margin-top:12px;padding:16px;background:var(--paper2);border-radius:8px;border:1px solid var(--paper3)}
+.ai-extra.visible{display:block}
 .prompt-output{background:var(--ink);border-radius:12px;padding:28px;margin-top:24px;display:none}
 .prompt-output.visible{display:block}
 .prompt-output-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:16px;font-weight:500}
-.prompt-text{font-size:14px;color:rgba(255,255,255,0.75);line-height:1.8;white-space:pre-wrap;font-family:var(--sans);font-weight:300}
+.prompt-text{font-size:13px;color:rgba(255,255,255,0.75);line-height:1.9;white-space:pre-wrap;font-family:var(--sans);font-weight:300}
 .copy-btn{display:inline-flex;align-items:center;gap:8px;margin-top:20px;padding:10px 20px;background:var(--accent);color:white;border:none;border-radius:8px;font-size:13px;font-family:var(--sans);cursor:pointer;font-weight:500;transition:opacity 0.2s}
 .copy-btn:hover{opacity:0.85}
 .copy-btn.copied{background:var(--green)}
@@ -130,6 +141,7 @@ body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-heigh
   </div>
 </nav>
 
+<!-- INTRO -->
 <div class="section active" id="s0">
   <div class="prose">
     <p style="font-size:13px;color:var(--ink3);margin-bottom:32px;text-transform:uppercase;letter-spacing:2px;font-weight:500">Pengantar</p>
@@ -145,6 +157,7 @@ body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-heigh
   </div>
 </div>
 
+<!-- CH1 -->
 <div class="section" id="s1">
   <div class="chapter-num">Chapter 1</div>
   <h2 class="chapter-title">Mulai dari <em>orang</em>,<br>bukan dari ide</h2>
@@ -166,6 +179,7 @@ body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-heigh
   </div>
 </div>
 
+<!-- CH2 -->
 <div class="section" id="s2">
   <div class="chapter-num">Chapter 2</div>
   <h2 class="chapter-title">Satu masalah,<br><em>satu produk</em></h2>
@@ -192,6 +206,7 @@ body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-heigh
   </div>
 </div>
 
+<!-- CH3 -->
 <div class="section" id="s3">
   <div class="chapter-num">Chapter 3</div>
   <h2 class="chapter-title"><em>Validasi</em><br>sebelum build</h2>
@@ -217,6 +232,7 @@ body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-heigh
   </div>
 </div>
 
+<!-- CH4 FORM -->
 <div class="section" id="s4">
   <div class="chapter-num">Chapter 4</div>
   <h2 class="chapter-title">Isi <em>brief</em><br>yang benar</h2>
@@ -225,91 +241,81 @@ body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-heigh
     <blockquote>Kayak kamu mau potong rambut dan bilang "terserah" ke tukang cukur. Jangan komplain kalau hasilnya tidak sesuai.</blockquote>
     <p>Form ini bukan untuk bikin kamu jadi orang yang detail dan terstruktur. Tapi untuk kasih kamu kerangka yang sudah jadi — tinggal isi. Kayak IKEA. Tinggal ikuti nomornya — jadi.</p>
   </div>
+
   <div class="divider"></div>
 
+  <!-- BAGIAN 1 -->
   <div class="form-section">
-    <div class="form-section-title">Bagian 1 — Pengguna Aplikasi</div>
-    <div class="form-section-sub">Siapa yang akan pakai dan apa masalah mereka</div>
-    <div class="form-group">
-      <label class="form-label">Siapa pengguna utama aplikasi yang akan kamu buat?</label>
-      <div class="form-hint">Sebutkan profesi dan aktivitas spesifiknya.<br><span>✓ Contoh: "Pemilik warung makan yang catat pesanan pelanggan setiap hari"</span></div>
-      <input class="form-input" id="f-siapa" placeholder="Tulis di sini..." />
-    </div>
-    <div class="form-group">
-      <label class="form-label">Pekerjaan berulang apa yang paling menyita waktu mereka?</label>
-      <div class="form-hint">Fokus ke pekerjaan yang bisa dibantu alat digital — bukan aktivitas fisik.<br><span>✓ Contoh: "Rekap pesanan dari WhatsApp ke buku tulis setiap hari"</span></div>
-      <textarea class="form-textarea" id="f-kegiatan" placeholder="Tulis di sini..."></textarea>
-    </div>
-    <div class="form-group">
-      <label class="form-label">Selama ini mereka tangani pekerjaan itu dengan cara apa?</label>
-      <div class="form-chips">
-        <button class="chip" onclick="toggleChip(this,'f-solusi-lama')">Tulis tangan / catat manual</button>
-        <button class="chip" onclick="toggleChip(this,'f-solusi-lama')">Kirim lewat WhatsApp</button>
-        <button class="chip" onclick="toggleChip(this,'f-solusi-lama')">Diingat, tidak dicatat</button>
-        <button class="chip" onclick="toggleChip(this,'f-solusi-lama')">Pakai Excel / spreadsheet</button>
-        <button class="chip" onclick="toggleChip(this,'f-solusi-lama')">Dibiarkan saja</button>
-        <button class="chip" onclick="toggleChip(this,'f-solusi-lama')">Diulang dari awal tiap kali</button>
-      </div>
-      <input class="form-input" id="f-solusi-lama" style="margin-top:8px" placeholder="Atau tulis sendiri..." />
-    </div>
-  </div>
+    <div class="form-section-title">Bagian 1 — Aplikasi & Pengguna</div>
+    <div class="form-section-sub">Tentang apa dan untuk siapa</div>
 
-  <div class="form-section">
-    <div class="form-section-title">Bagian 2 — Masalah & Dampaknya</div>
-    <div class="form-section-sub">Seberapa besar masalah ini dalam kehidupan mereka</div>
     <div class="form-group">
-      <label class="form-label">Apa yang paling sering salah atau terlewat kalau dikerjakan dengan cara lama?</label>
-      <div class="form-hint"><span>✓ Contoh: "Sering salah hitung, data hilang, harus ulang dari awal"</span></div>
-      <textarea class="form-textarea" id="f-masalah" placeholder="Tulis di sini..."></textarea>
-    </div>
-    <div class="form-group">
-      <label class="form-label">Berapa waktu yang terbuang setiap kali dikerjakan manual?</label>
-      <div class="form-chips">
-        <button class="chip" onclick="selectChip(this,'f-waktu','kurang dari 15 menit')">Kurang 15 menit</button>
-        <button class="chip" onclick="selectChip(this,'f-waktu','sekitar 15–30 menit')">15–30 menit</button>
-        <button class="chip" onclick="selectChip(this,'f-waktu','sekitar 30 menit–1 jam')">30 menit–1 jam</button>
-        <button class="chip" onclick="selectChip(this,'f-waktu','lebih dari 1 jam')">Lebih dari 1 jam</button>
-      </div>
-      <input type="hidden" id="f-waktu" />
-    </div>
-  </div>
-
-  <div class="form-section">
-    <div class="form-section-title">Bagian 3 — Fungsi Aplikasi</div>
-    <div class="form-section-sub">Apa yang berubah untuk pengguna setelah pakai aplikasi ini</div>
-    <div class="form-group">
-      <label class="form-label">Setelah menggunakan aplikasi ini, apa yang berubah untuk pengguna?</label>
+      <label class="form-label">Aplikasi ini untuk menyelesaikan masalah apa? <span class="form-badge wajib">Wajib</span></label>
       <div class="form-hint">
-        <span class="wrong">✗ Jangan: "Ada tombol hitung, ada tabel, ada grafik"</span><br>
-        <span>✓ Yang benar: "Bisa lihat total pesanan hari ini tanpa hitung manual"</span>
+        Tulis satu kalimat yang jelas dan spesifik.<br>
+        <span class="ok">✓ "Catat pengeluaran harian supaya tidak perlu hitung manual"</span><br>
+        <span class="no">✗ Jangan: "Aplikasi keuangan" atau "Aplikasi toko"</span>
       </div>
-      <textarea class="form-textarea" id="f-fungsi" placeholder="Tulis 1–3 perubahan nyata untuk pengguna..."></textarea>
+      <textarea class="form-textarea" id="f-masalah-utama" placeholder="Tulis satu kalimat di sini..."></textarea>
     </div>
+
     <div class="form-group">
-      <label class="form-label">Siapa yang akan menggunakan aplikasi ini?</label>
-      <div class="form-chips">
-        <button class="chip" onclick="selectChip(this,'f-pengguna','hanya saya sendiri')">Hanya saya sendiri</button>
-        <button class="chip" onclick="selectChip(this,'f-pengguna','saya dan tim kecil')">Saya dan tim kecil</button>
-        <button class="chip" onclick="selectChip(this,'f-pengguna','orang lain — saya yang buatkan')">Orang lain — saya buatkan</button>
+      <label class="form-label">Siapa yang akan pakai dan seberapa familiar mereka dengan teknologi? <span class="form-badge wajib">Wajib</span></label>
+      <div class="form-hint">
+        Sebutkan orangnya + kemampuan teknologinya dalam satu kalimat.<br>
+        <span class="ok">✓ "Ibu rumah tangga, tidak terbiasa pakai aplikasi"</span><br>
+        <span class="ok">✓ "Staf admin kantor, cukup familiar pakai HP"</span>
       </div>
-      <input type="hidden" id="f-pengguna" />
+      <input class="form-input" id="f-pengguna" placeholder="Tulis di sini..." />
     </div>
+
     <div class="form-group">
-      <label class="form-label">Seberapa familiar pengguna dengan aplikasi digital?</label>
+      <label class="form-label">Selama ini mereka selesaikan masalah itu dengan cara apa? <span class="form-badge wajib">Wajib</span></label>
       <div class="form-chips">
-        <button class="chip" onclick="selectChip(this,'f-familiar','tidak terbiasa — UI harus sangat simpel dan ada panduan')">Tidak terbiasa sama sekali</button>
-        <button class="chip" onclick="selectChip(this,'f-familiar','cukup familiar dengan aplikasi dasar')">Cukup familiar</button>
-        <button class="chip" onclick="selectChip(this,'f-familiar','terbiasa pakai berbagai aplikasi sehari-hari')">Terbiasa pakai apps</button>
+        <button class="chip" onclick="toggleChip(this,'f-cara-lama')">Tulis tangan / catat manual</button>
+        <button class="chip" onclick="toggleChip(this,'f-cara-lama')">Excel / spreadsheet</button>
+        <button class="chip" onclick="toggleChip(this,'f-cara-lama')">WhatsApp / chat</button>
+        <button class="chip" onclick="toggleChip(this,'f-cara-lama')">Diingat saja</button>
+        <button class="chip" onclick="toggleChip(this,'f-cara-lama')">Dibiarkan saja</button>
+        <button class="chip" onclick="toggleChip(this,'f-cara-lama')">Diulang dari awal tiap kali</button>
       </div>
-      <input type="hidden" id="f-familiar" />
+      <input class="form-input" id="f-cara-lama" style="margin-top:8px" placeholder="Atau tulis sendiri..." />
     </div>
   </div>
 
+  <!-- BAGIAN 2 -->
   <div class="form-section">
-    <div class="form-section-title">Bagian 4 — Tampilan & Output</div>
-    <div class="form-section-sub">Bukan "yang bagus" — tapi yang cocok untuk penggunanya</div>
+    <div class="form-section-title">Bagian 2 — Hasil & Fitur</div>
+    <div class="form-section-sub">Apa yang berubah dan fitur yang diinginkan</div>
+
     <div class="form-group">
-      <label class="form-label">Suasana tampilan yang cocok untuk penggunanya?</label>
+      <label class="form-label">Setelah pakai aplikasi ini, apa yang berubah untuk pengguna? <span class="form-badge wajib">Wajib</span></label>
+      <div class="form-hint">
+        Fokus ke hasil nyata — bukan fitur teknis.<br>
+        <span class="ok">✓ "Bisa lihat total pengeluaran bulan ini tanpa hitung manual"</span><br>
+        <span class="no">✗ Jangan: "Ada tombol tambah, ada tabel, ada grafik"</span>
+      </div>
+      <textarea class="form-textarea" id="f-perubahan" placeholder="Tulis 1–3 perubahan nyata..."></textarea>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Fitur tambahan yang diinginkan? <span class="form-badge opsional">Opsional — maks 3</span></label>
+      <div class="form-hint">Fitur spesifik yang mempertegas fungsi utama. Contoh: "Filter per bulan", "Grafik sederhana", "Export ringkasan"</div>
+      <div class="fitur-inputs">
+        <input class="form-input" id="f-fitur1" placeholder="Fitur 1 (opsional)" />
+        <input class="form-input" id="f-fitur2" placeholder="Fitur 2 (opsional)" />
+        <input class="form-input" id="f-fitur3" placeholder="Fitur 3 (opsional)" />
+      </div>
+    </div>
+  </div>
+
+  <!-- BAGIAN 3 -->
+  <div class="form-section">
+    <div class="form-section-title">Bagian 3 — Tampilan</div>
+    <div class="form-section-sub">Bukan "yang bagus" — tapi yang cocok untuk penggunanya</div>
+
+    <div class="form-group">
+      <label class="form-label">Suasana tampilan yang cocok? <span class="form-badge wajib">Wajib</span></label>
       <div class="form-chips">
         <button class="chip" onclick="selectChip(this,'f-suasana','simpel dan bersih')">Simpel & bersih</button>
         <button class="chip" onclick="selectChip(this,'f-suasana','profesional dan serius')">Profesional</button>
@@ -319,32 +325,84 @@ body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-heigh
       </div>
       <input type="hidden" id="f-suasana" />
     </div>
+
     <div class="form-group">
-      <label class="form-label">Aplikasi ini akan dibuka di mana?</label>
+      <label class="form-label">Dipakai di mana? <span class="form-badge wajib">Wajib</span></label>
       <div class="form-chips">
-        <button class="chip" onclick="selectChip(this,'f-device','HP — dioptimalkan untuk layar kecil, touch-friendly')">HP</button>
-        <button class="chip" onclick="selectChip(this,'f-device','Laptop / PC — dioptimalkan untuk layar besar')">Laptop / PC</button>
-        <button class="chip" onclick="selectChip(this,'f-device','HP dan Laptop — harus responsive di keduanya')">HP & Laptop</button>
+        <button class="chip" onclick="selectChip(this,'f-device','HP — layar kecil, touch-friendly')">HP</button>
+        <button class="chip" onclick="selectChip(this,'f-device','Laptop / PC — layar besar')">Laptop / PC</button>
+        <button class="chip" onclick="selectChip(this,'f-device','HP dan Laptop — responsive keduanya')">HP & Laptop</button>
       </div>
       <input type="hidden" id="f-device" />
     </div>
+
     <div class="form-group">
-      <label class="form-label">Bahasa yang digunakan dalam aplikasi?</label>
+      <label class="form-label">Bahasa aplikasi? <span class="form-badge wajib">Wajib</span></label>
       <div class="form-chips">
         <button class="chip" onclick="selectChip(this,'f-bahasa','Bahasa Indonesia')">Indonesia</button>
         <button class="chip" onclick="selectChip(this,'f-bahasa','Bahasa Inggris')">Inggris</button>
-        <button class="chip" onclick="selectChip(this,'f-bahasa','Bahasa Indonesia dan Inggris')">Dua-duanya</button>
+        <button class="chip" onclick="selectChip(this,'f-bahasa','Indonesia dan Inggris')">Dua-duanya</button>
       </div>
       <input type="hidden" id="f-bahasa" />
     </div>
+
     <div class="form-group">
-      <label class="form-label">Warna atau referensi tampilan? (opsional)</label>
-      <div class="form-hint">Contoh: biru gelap, hijau natural, atau sebut aplikasi lain yang kamu suka tampilannya</div>
+      <label class="form-label">Warna atau referensi tampilan? <span class="form-badge opsional">Opsional</span></label>
+      <div class="form-hint">Contoh: "biru gelap", "hijau natural", atau nama aplikasi lain yang kamu suka tampilannya</div>
       <input class="form-input" id="f-warna" placeholder="Tulis di sini..." />
     </div>
   </div>
 
+  <!-- BAGIAN 4 -->
+  <div class="form-section">
+    <div class="form-section-title">Bagian 4 — Teknis</div>
+    <div class="form-section-sub">Tujuan dan kebutuhan teknis aplikasi</div>
+
+    <div class="form-group">
+      <label class="form-label">Aplikasi ini untuk siapa? <span class="form-badge wajib">Wajib</span></label>
+      <div class="form-chips">
+        <button class="chip" onclick="selectChip(this,'f-tujuan','dipakai sendiri — UI boleh simpel')">Saya pakai sendiri</button>
+        <button class="chip" onclick="selectChip(this,'f-tujuan','dibagikan gratis ke orang lain — UI harus jelas dan mudah')">Dibagikan gratis</button>
+        <button class="chip" onclick="selectChip(this,'f-tujuan','dijual sebagai produk — UI harus polished, ada nama aplikasi di header, semua label self-explanatory')">Dijual sebagai produk</button>
+      </div>
+      <input type="hidden" id="f-tujuan" />
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Perlu simpan data? <span class="form-badge wajib">Wajib</span></label>
+      <div class="form-chips">
+        <button class="chip" onclick="selectChip(this,'f-simpan','tidak perlu — cukup sekali pakai')">Tidak perlu</button>
+        <button class="chip" onclick="selectChip(this,'f-simpan','ya — data tersimpan walau browser di-refresh menggunakan localStorage')">Ya — simpan di browser</button>
+        <button class="chip" onclick="selectChip(this,'f-simpan','ya — data tersimpan di localStorage, ada tombol Export JSON dan Import JSON untuk backup')">Ya — simpan + export/import JSON</button>
+      </div>
+      <input type="hidden" id="f-simpan" />
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Perlu AI generate konten di dalam aplikasi? <span class="form-badge wajib">Wajib</span></label>
+      <div class="form-chips">
+        <button class="chip" onclick="toggleAI(this,'tidak')">Tidak perlu</button>
+        <button class="chip" onclick="toggleAI(this,'ya')">Ya — perlu tombol generate konten dengan AI</button>
+      </div>
+      <input type="hidden" id="f-ai" />
+      <div class="ai-extra" id="ai-extra">
+        <label class="form-label" style="margin-bottom:6px">Konten apa yang perlu di-generate oleh AI?</label>
+        <div class="form-hint">
+          Spesifik — bukan sekadar "konten"<br>
+          <span class="ok">✓ "Soal matematika kelas 5 SD"</span><br>
+          <span class="ok">✓ "Ide caption Instagram untuk produk fashion"</span><br>
+          <span class="ok">✓ "Pertanyaan interview untuk posisi marketing"</span>
+        </div>
+        <input class="form-input" id="f-ai-konten" placeholder="Tulis konten yang perlu di-generate..." />
+        <div class="note-box" style="margin-top:10px">
+          <p>⚠️ Catatan: fitur AI hanya jalan di dalam Gemini Canvas — aplikasi tidak bisa dibagikan sebagai file ke orang lain.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <button class="generate-btn" onclick="generatePrompt()">Generate prompt kamu →</button>
+
   <div class="prompt-output" id="prompt-output">
     <div class="prompt-output-label">Prompt siap pakai</div>
     <div class="prompt-text" id="prompt-text"></div>
@@ -353,6 +411,7 @@ body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-heigh
   </div>
 </div>
 
+<!-- CH5 -->
 <div class="section" id="s5">
   <div class="chapter-num">Chapter 5</div>
   <h2 class="chapter-title">Dari brief<br><em>jadi prompt</em></h2>
@@ -365,12 +424,14 @@ body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-heigh
     <p>Brief yang kamu isi di chapter 4 tadi? Itu sudah 90% jadi prompt. Form tadi sudah kerjakan itu untukmu — tinggal salin dan paste.</p>
     <div class="highlight">
       <p><strong>Prompt yang dihasilkan punya:</strong></p>
-      <p>✓ Konteks pengguna yang spesifik</p>
-      <p>✓ Masalah dengan skala dampaknya</p>
-      <p>✓ Fungsi berbasis perubahan nyata</p>
+      <p>✓ Masalah yang spesifik dan jelas</p>
+      <p>✓ Konteks pengguna yang tepat</p>
+      <p>✓ Perubahan nyata yang diharapkan</p>
+      <p>✓ Fitur tambahan kalau ada</p>
       <p>✓ UI sesuai kemampuan pengguna</p>
       <p>✓ Bahasa yang tepat</p>
       <p>✓ Support dark & light mode</p>
+      <p>✓ Simpan data / export / AI — sesuai pilihan</p>
     </div>
     <p>Prompt pertama tidak harus sempurna. Gemini bisa diajak ngobrol — kalau hasilnya kurang pas, bilang bagian mana yang perlu diubah.</p>
     <p style="font-family:var(--serif);font-style:italic;font-size:17px;color:var(--ink)">Bukan satu tembakan harus langsung kena. Tapi percakapan — sampai hasilnya benar-benar jadi milikmu.</p>
@@ -378,11 +439,12 @@ body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-heigh
   <div class="latihan">
     <div class="latihan-label">Sebelum lanjut</div>
     <div class="latihan-title">Pastikan prompt sudah disalin</div>
-    <p>Kembali ke chapter 4 — klik tombol "Generate prompt" dan salin hasilnya.</p>
-    <p>Setelah prompt ada di clipboard — lanjut ke chapter 6.</p>
+    <p>Kembali ke chapter 4 — isi form dan klik "Generate prompt."</p>
+    <p>Setelah prompt tersalin — lanjut ke chapter 6.</p>
   </div>
 </div>
 
+<!-- CH6 -->
 <div class="section" id="s6">
   <div class="chapter-num">Chapter 6</div>
   <h2 class="chapter-title">Buka Gemini —<br><em>siap dalam 2 menit</em></h2>
@@ -434,10 +496,11 @@ body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-heigh
     </div>
   </div>
   <div class="warning-box">
-    <p><strong>Tips:</strong> Gemini Canvas menampilkan aplikasi langsung di sebelah kanan layar — kamu bisa langsung lihat hasilnya sambil chat. Kalau ada yang kurang — tinggal minta revisi di kotak chat yang sama. Tidak perlu mulai dari awal.</p>
+    <p><strong>Tips:</strong> Gemini Canvas menampilkan aplikasi langsung di sebelah layar — kamu bisa langsung lihat hasilnya sambil chat. Kalau ada yang kurang — tinggal minta revisi di kotak chat yang sama. Tidak perlu mulai dari awal.</p>
   </div>
 </div>
 
+<!-- CH7 -->
 <div class="section" id="s7">
   <div class="chapter-num">Chapter 7</div>
   <h2 class="chapter-title">Build, test,<br><em>selesai</em></h2>
@@ -473,6 +536,7 @@ body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-heigh
   </div>
 </div>
 
+<!-- CH8 -->
 <div class="section" id="s8">
   <div class="chapter-num">Chapter 8</div>
   <h2 class="chapter-title">Produk jadi,<br><em>sekarang apa?</em></h2>
@@ -534,42 +598,76 @@ function selectChip(el,fieldId,val){
   el.classList.add('selected');
   document.getElementById(fieldId).value=val||el.textContent;
 }
+function toggleAI(el,val){
+  el.parentElement.querySelectorAll('.chip').forEach(c=>c.classList.remove('selected'));
+  el.classList.add('selected');
+  document.getElementById('f-ai').value=val;
+  document.getElementById('ai-extra').classList.toggle('visible',val==='ya');
+}
 function generatePrompt(){
-  const siapa=document.getElementById('f-siapa').value.trim();
-  const kegiatan=document.getElementById('f-kegiatan').value.trim();
-  const solusiLama=document.getElementById('f-solusi-lama').value.trim();
-  const masalah=document.getElementById('f-masalah').value.trim();
-  const waktu=document.getElementById('f-waktu').value;
-  const fungsi=document.getElementById('f-fungsi').value.trim();
-  const pengguna=document.getElementById('f-pengguna').value;
-  const familiar=document.getElementById('f-familiar').value;
+  const masalahUtama=document.getElementById('f-masalah-utama').value.trim();
+  const pengguna=document.getElementById('f-pengguna').value.trim();
+  const caraLama=document.getElementById('f-cara-lama').value.trim();
+  const perubahan=document.getElementById('f-perubahan').value.trim();
+  const fitur1=document.getElementById('f-fitur1').value.trim();
+  const fitur2=document.getElementById('f-fitur2').value.trim();
+  const fitur3=document.getElementById('f-fitur3').value.trim();
   const suasana=document.getElementById('f-suasana').value;
   const device=document.getElementById('f-device').value;
   const bahasa=document.getElementById('f-bahasa').value;
   const warna=document.getElementById('f-warna').value.trim();
-  if(!siapa||!masalah||!fungsi){alert('Isi minimal: pengguna utama, masalah, dan fungsi aplikasinya dulu ya.');return;}
-  let p=`Buatkan saya aplikasi dalam satu file HTML yang langsung bisa dibuka di browser tanpa install apapun. Tampilkan hasilnya di Canvas.\n\n`;
-  p+=`TARGET PENGGUNA:\n`;
-  p+=`Pengguna utama: ${siapa}\n`;
-  if(kegiatan) p+=`Pekerjaan berulang mereka: ${kegiatan}\n`;
-  if(solusiLama) p+=`Cara mereka tangani selama ini: ${solusiLama}\n`;
-  p+=`\nMASALAH & DAMPAK:\n${masalah}\n`;
-  if(waktu) p+=`Waktu terbuang per sesi: ${waktu}\n`;
-  p+=`\nFUNGSI APLIKASI:\n${fungsi}\n`;
-  if(pengguna) p+=`\nPengguna aplikasi: ${pengguna}\n`;
-  if(familiar) p+=`Tingkat familiar dengan teknologi: ${familiar}\n`;
-  p+=`\nTAMPILAN & OUTPUT:\n`;
+  const tujuan=document.getElementById('f-tujuan').value;
+  const simpan=document.getElementById('f-simpan').value;
+  const ai=document.getElementById('f-ai').value;
+  const aiKonten=document.getElementById('f-ai-konten').value.trim();
+
+  if(!masalahUtama||!pengguna||!perubahan){
+    alert('Isi minimal: masalah utama, pengguna, dan perubahan yang diharapkan ya.');
+    return;
+  }
+
+  let p=`Buatkan aplikasi di Gemini Canvas menggunakan React.\n\n`;
+  p+=`MASALAH YANG DISELESAIKAN:\n${masalahUtama}\n\n`;
+  p+=`PENGGUNA:\n${pengguna}\n`;
+  if(caraLama) p+=`Cara lama mereka: ${caraLama}\n`;
+  p+=`\nPERUBAHAN YANG DIHARAPKAN:\n${perubahan}\n`;
+
+  const fiturList=[fitur1,fitur2,fitur3].filter(f=>f);
+  if(fiturList.length>0){
+    p+=`\nFITUR TAMBAHAN:\n`;
+    fiturList.forEach(f=>p+=`- ${f}\n`);
+  }
+
+  if(ai==='ya'&&aiKonten){
+    p+=`\nFITUR AI:\n`;
+    p+=`Aplikasi ini perlu tombol generate konten menggunakan Gemini API yang tersedia di Canvas.\n`;
+    p+=`Konten yang di-generate: "${aiKonten}"\n`;
+    p+=`Tombol harus jelas dan hasil generate langsung tampil di dalam aplikasi.\n`;
+  }
+
+  p+=`\nTAMPILAN:\n`;
   if(suasana) p+=`Suasana: ${suasana}\n`;
   if(device) p+=`Dioptimalkan untuk: ${device}\n`;
-  if(bahasa) p+=`Bahasa aplikasi: ${bahasa}\n`;
+  if(bahasa) p+=`Bahasa: ${bahasa}\n`;
   if(warna) p+=`Referensi warna/tampilan: ${warna}\n`;
+
+  if(tujuan){
+    p+=`\nTUJUAN APLIKASI:\n${tujuan}\n`;
+  }
+
   p+=`\nSYARAT TEKNIS:\n`;
-  p+=`- Satu file HTML, tidak perlu login atau database\n`;
-  p+=`- Bisa langsung dipakai di browser\n`;
-  p+=`- Wajib ada tombol toggle dark mode / light mode di sudut kanan atas\n`;
+  p+=`- Bangun di Gemini Canvas menggunakan React\n`;
+  if(simpan.includes('localStorage')&&simpan.includes('Export')){
+    p+=`- Data tersimpan menggunakan localStorage — tidak hilang walau browser di-refresh\n`;
+    p+=`- Ada tombol Export JSON dan Import JSON untuk backup dan restore data\n`;
+  } else if(simpan.includes('localStorage')){
+    p+=`- Data tersimpan menggunakan localStorage — tidak hilang walau browser di-refresh\n`;
+  }
+  p+=`- Tombol toggle dark mode / light mode di sudut kanan atas\n`;
   p+=`- Dark mode: background gelap, teks terang\n`;
   p+=`- Light mode: background putih/terang, teks gelap\n`;
-  p+=`- Tampilan bersih dan intuitif — pengguna tidak perlu baca panduan untuk pakai`;
+  p+=`- Tampilan intuitif — pengguna tidak perlu baca panduan untuk pakai`;
+
   document.getElementById('prompt-text').textContent=p;
   const out=document.getElementById('prompt-output');
   out.classList.add('visible');
